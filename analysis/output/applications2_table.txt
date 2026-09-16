@@ -1,0 +1,162 @@
+apply_realdata2.R -- 2026-09-07 11:03 
+se_emp: empirical variance of AIPW pseudo-observations (Hajek fixed-weight sandwich for oal_ipw); se_stk: stacked sandwich (B.1).
+lo/hi_w1: Theorem-3 widened interval with B = one stacked SE. mean_size: mean selected-set size over the 5 folds.
+
+                           outcome    n  p      arm estimate  se_emp  se_stk
+ 30-day survival (risk difference) 5735 74     full -0.07139 0.01593 0.01739
+ 30-day survival (risk difference) 5735 74  out_thr -0.07353 0.01287 0.01321
+ 30-day survival (risk difference) 5735 74  out_bic -0.05819 0.01222 0.01262
+ 30-day survival (risk difference) 5735 74  oal_fix -0.06606 0.01220 0.01240
+ 30-day survival (risk difference) 5735 74 oal_wamd -0.07072 0.01588 0.01728
+ 30-day survival (risk difference) 5735 74 oads_thr -0.07353 0.01287 0.01321
+ 30-day survival (risk difference) 5735 74 oads_bic -0.06049 0.01235 0.01277
+ 30-day survival (risk difference) 5735 74  trt_bic -0.06219 0.01582 0.01735
+ 30-day survival (risk difference) 5735 74      bch -0.06254 0.01544 0.01645
+ 30-day survival (risk difference) 5735 74  oal_ipw -0.06232 0.01689      NA
+             length of stay (days) 5734 74     full  2.35314 0.97515 1.08946
+             length of stay (days) 5734 74  out_thr  2.33990 0.94922 1.02942
+             length of stay (days) 5734 74  out_bic  2.24309 0.96367 1.07571
+             length of stay (days) 5734 74  oal_fix  2.55782 0.96802 1.02365
+             length of stay (days) 5734 74 oal_wamd  2.37103 0.96745 1.07636
+             length of stay (days) 5734 74 oads_thr  2.33990 0.94922 1.02942
+             length of stay (days) 5734 74 oads_bic  2.24309 0.96367 1.07571
+             length of stay (days) 5734 74  trt_bic  2.82748 0.94496 1.10172
+             length of stay (days) 5734 74      bch  2.35427 0.97605 1.09040
+             length of stay (days) 5734 74  oal_ipw  2.54167 0.92006      NA
+   lo_emp   hi_emp   lo_stk   hi_stk    lo_w1    hi_w1 mean_size trim_frac
+ -0.10260 -0.04017 -0.10548 -0.03730 -0.12287 -0.01991      74.0 0.0725371
+ -0.09875 -0.04830 -0.09942 -0.04763 -0.11263 -0.03442      15.8 0.0043592
+ -0.08215 -0.03423 -0.08293 -0.03345 -0.09556 -0.02083      10.8 0.0013949
+ -0.08998 -0.04214 -0.09037 -0.04176 -0.10277 -0.02936       6.0 0.0008718
+ -0.10185 -0.03958 -0.10459 -0.03685 -0.12187 -0.01957      70.2 0.0720139
+ -0.09875 -0.04830 -0.09942 -0.04763 -0.11263 -0.03442      15.8 0.0043592
+ -0.08469 -0.03629 -0.08553 -0.03546 -0.09830 -0.02268      12.4 0.0036617
+ -0.09319 -0.03119 -0.09620 -0.02818 -0.11355 -0.01082      38.2 0.0610288
+ -0.09281 -0.03227 -0.09478 -0.03030 -0.11123 -0.01385      44.4 0.0673060
+ -0.09541 -0.02922       NA       NA       NA       NA      74.0 0.0702703
+  0.44186  4.26443  0.21781  4.48848 -0.87165  5.57794      74.0 0.0741193
+  0.47942  4.20038  0.32223  4.35757 -0.70719  5.38699      63.4 0.0582490
+  0.35431  4.13188  0.13471  4.35148 -0.94100  5.42719      73.4 0.0716777
+  0.66051  4.45513  0.55146  4.56417 -0.47219  5.58783      38.4 0.0479595
+  0.47482  4.26724  0.26136  4.48070 -0.81501  5.55707      72.0 0.0718521
+  0.47942  4.20038  0.32223  4.35757 -0.70719  5.38699      63.4 0.0582490
+  0.35431  4.13188  0.13471  4.35148 -0.94100  5.42719      73.4 0.0716777
+  0.97536  4.67960  0.66811  4.98685 -0.43360  6.08857      44.2 0.0640042
+  0.44121  4.26733  0.21709  4.49145 -0.87330  5.58185      73.6 0.0739449
+  0.73836  4.34499       NA       NA       NA       NA      74.0 0.0704569
+
+--- 30-day survival (risk difference) ---
+S_oal \ S_out(thr), frequency over folds:
+numeric(0)
+S_oal \ S_out(bic), frequency over folds:
+
+cat2MOSF w/Sepsis          cat2None           malighx 
+              1.0               0.4               0.2 
+selected by the treatment lasso but not by ODS-thr (candidate treatment-only predictors), frequency over folds:
+
+              cardYes               cat1CHF         cat1Cirrhosis 
+                  1.0                   1.0                   1.0 
+    cat1MOSF w/Sepsis              dementhx              gastrYes 
+                  1.0                   1.0                   1.0 
+                hema1                  hrt1               meanbp1 
+                  1.0                   1.0                   1.0 
+                pafi1                  pot1                 resp1 
+                  1.0                   1.0                   1.0 
+              respYes                  sod1               transhx 
+                  1.0                   1.0                   1.0 
+            traumaYes               wtkilo1                  alb1 
+                  1.0                   1.0                   0.8 
+             cat1COPD                 crea1                   edu 
+                  0.8                   0.8                   0.8 
+              hemaYes               malighx              neuroYes 
+                  0.8                   0.8                   0.8 
+               paco21               psychhx            urin1_miss 
+                  0.8                   0.8                   0.8 
+                 aps1                   ph1              renalYes 
+                  0.6                   0.6                   0.6 
+              sepsYes                 temp1                   age 
+                  0.4                   0.4                   0.2 
+             cardiohx       cat2Lung Cancer cat2MOSF w/Malignancy 
+                  0.2                   0.2                   0.2 
+                chfhx              chrpulhx              gibledhx 
+                  0.2                   0.2                   0.2 
+              immunhx      ninsclasMedicare              orthoYes 
+                  0.2                   0.2                   0.2 
+              renalhx                scoma1               sexMale 
+                  0.2                   0.2                   0.2 
+         wtkilo1_zero 
+                  0.2 
+full-set propensity score quantiles and tail mass:
+     0%      1%      5%     25%     50%     75%     95%     99%    100% below05 
+ 0.0025  0.0171  0.0416  0.1614  0.3427  0.5788  0.8282  0.9226  0.9896  0.0659 
+above95 
+ 0.0045 
+sensitivity: trimming at 0.01 (main split):
+      arm estimate  se_emp  se_stk mean_size trim_frac
+     full -0.07900 0.02097 0.02270      74.0  0.004359
+  out_thr -0.08583 0.01919 0.01969      15.8  0.001221
+  out_bic -0.05819 0.01222 0.01262      10.8  0.000000
+  oal_fix -0.06606 0.01220 0.01240       6.0  0.000000
+ oal_wamd -0.07834 0.02147 0.02301      70.2  0.004010
+ oads_thr -0.08583 0.01919 0.01969      15.8  0.001221
+ oads_bic -0.06049 0.01235 0.01277      12.4  0.000000
+  trt_bic -0.06153 0.01794 0.01918      38.2  0.002267
+      bch -0.06360 0.01706 0.01822      44.4  0.002790
+  oal_ipw -0.05997 0.01758      NA      74.0  0.000000
+split stability (estimate range over 5 fold splits):
+      arm  est_min  est_max se_stk_min se_stk_max
+     full -0.07167 -0.06899    0.01687    0.01810
+  out_thr -0.07353 -0.06520    0.01321    0.01369
+  out_bic -0.06192 -0.05310    0.01262    0.01305
+  oal_fix -0.06988 -0.06606    0.01236    0.01251
+ oal_wamd -0.07227 -0.06888    0.01687    0.01796
+ oads_thr -0.07353 -0.06520    0.01321    0.01369
+ oads_bic -0.06286 -0.05554    0.01277    0.01319
+  trt_bic -0.06788 -0.06207    0.01608    0.01735
+      bch -0.06687 -0.06011    0.01624    0.01699
+  oal_ipw -0.06232 -0.06232         NA         NA
+
+--- length of stay (days) ---
+S_oal \ S_out(thr), frequency over folds:
+numeric(0)
+S_oal \ S_out(bic), frequency over folds:
+numeric(0)
+selected by the treatment lasso but not by ODS-thr (candidate treatment-only predictors), frequency over folds:
+
+         psychhx          cardYes          meanbp1         renalYes 
+             1.0              0.8              0.4              0.4 
+           resp1         cardiohx              edu          immunhx 
+             0.4              0.2              0.2              0.2 
+         malighx ninsclasMedicare  ninsclasPrivate        traumaYes 
+             0.2              0.2              0.2              0.2 
+           urin1          wtkilo1 
+             0.2              0.2 
+full-set propensity score quantiles and tail mass:
+     0%      1%      5%     25%     50%     75%     95%     99%    100% below05 
+ 0.0025  0.0171  0.0416  0.1616  0.3426  0.5785  0.8281  0.9225  0.9896  0.0657 
+above95 
+ 0.0045 
+sensitivity: trimming at 0.01 (main split):
+      arm estimate se_emp se_stk mean_size trim_frac
+     full    2.714 1.4028  2.087      74.0  0.003139
+  out_thr    2.668 1.6561  2.612      63.4  0.002093
+  out_bic    1.872 1.1099  1.325      73.4  0.003139
+  oal_fix    3.307 1.4418  2.216      38.4  0.001046
+ oal_wamd    2.662 1.3942  2.075      72.0  0.003139
+ oads_thr    2.668 1.6561  2.612      63.4  0.002093
+ oads_bic    1.872 1.1099  1.325      73.4  0.003139
+  trt_bic    2.872 0.9518  1.103      44.2  0.002267
+      bch    2.719 1.4034  2.088      73.6  0.003314
+  oal_ipw    2.561 0.9302     NA      74.0  0.000000
+split stability (estimate range over 5 fold splits):
+      arm est_min est_max se_stk_min se_stk_max
+     full   2.069   3.122     1.0416      1.089
+  out_thr   2.204   2.876     0.9948      1.038
+  out_bic   2.111   3.122     1.0359      1.076
+  oal_fix   2.502   2.855     0.9647      1.024
+ oal_wamd   2.112   3.139     1.0408      1.076
+ oads_thr   2.204   2.876     0.9948      1.038
+ oads_bic   2.111   3.122     1.0359      1.076
+  trt_bic   2.777   3.390     0.9880      1.102
+      bch   2.057   3.122     1.0416      1.090
+  oal_ipw   2.542   2.542         NA         NA

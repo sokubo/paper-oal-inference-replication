@@ -1,0 +1,10 @@
+                           regime                      method     bias emp_sd
+1         I: benign (n=500, p=20)      OADS + AIPW (proposed)  0.00208  0.296
+2         I: benign (n=500, p=20) BCH double selection + AIPW  0.01498  0.313
+3 II: many controls (n=200, p=50)      OADS + AIPW (proposed)  0.09307  1.048
+4 II: many controls (n=200, p=50) BCH double selection + AIPW -0.11074  1.207
+  se_ratio coverage95 iv_retention boundary_retention
+1    0.964      0.932        0.630              1.000
+2    0.994      0.924        1.000              1.000
+3    0.942      0.958        0.475              0.780
+4    0.966      0.968        1.000              0.985

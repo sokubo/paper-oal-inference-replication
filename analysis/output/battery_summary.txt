@@ -1,0 +1,50 @@
+                              regime            method     bias emp_sd se_ratio
+1             I: benign (n=500,p=20)            oracle  0.00696  0.205    0.989
+2             I: benign (n=500,p=20)           oal_ipw  0.11810  0.283    1.129
+3             I: benign (n=500,p=20)           oal_ols  0.00307  0.236    0.942
+4             I: benign (n=500,p=20)              oads -0.00899  0.280    1.010
+5             I: benign (n=500,p=20)               bch -0.00250  0.315    0.987
+6             I: benign (n=500,p=20)           ry_oads -0.00559  0.361    0.909
+7             I: benign (n=500,p=20) oads_widened_B1sd -0.00899  0.280       NA
+8             I: benign (n=500,p=20) oads_widened_B2sd -0.00899  0.280       NA
+9     II: many controls (n=200,p=50)            oracle -0.00215  0.322    1.001
+10    II: many controls (n=200,p=50)           oal_ipw  0.21356  0.397    1.036
+11    II: many controls (n=200,p=50)           oal_ols -0.00354  0.401    0.906
+12    II: many controls (n=200,p=50)              oads -0.03318  1.094    0.899
+13    II: many controls (n=200,p=50)               bch -0.12123  1.183    0.997
+14    II: many controls (n=200,p=50)           ry_oads  0.04356  0.585    0.740
+15    II: many controls (n=200,p=50) oads_widened_B1sd -0.03318  1.094       NA
+16    II: many controls (n=200,p=50) oads_widened_B2sd -0.03318  1.094       NA
+17 III: local boundary (n=2000,p=20)            oracle -0.01306  0.106    0.979
+18 III: local boundary (n=2000,p=20)           oal_ipw  0.03539  0.162    1.014
+19 III: local boundary (n=2000,p=20)           oal_ols -0.01354  0.120    0.930
+20 III: local boundary (n=2000,p=20)              oads  0.02080  0.133    0.875
+21 III: local boundary (n=2000,p=20)               bch -0.01708  0.147    0.905
+22 III: local boundary (n=2000,p=20)           ry_oads  0.00954  0.186    0.896
+23 III: local boundary (n=2000,p=20) oads_widened_B1sd  0.02080  0.133       NA
+24 III: local boundary (n=2000,p=20) oads_widened_B2sd  0.02080  0.133       NA
+   cov95 width_rel_oracle
+1  0.958             1.00
+2  0.960             1.57
+3  0.938             1.09
+4  0.952             1.39
+5  0.950             1.53
+6  0.918             1.61
+7  0.998             2.10
+8  0.998             2.81
+9  0.954             1.00
+10 0.898             1.28
+11 0.896             1.13
+12 0.944             3.05
+13 0.952             3.66
+14 0.838             1.34
+15 0.996             4.60
+16 1.000             6.16
+17 0.944             1.00
+18 0.936             1.59
+19 0.910             1.08
+20 0.910             1.12
+21 0.906             1.28
+22 0.914             1.60
+23 0.988             1.70
+24 1.000             2.27

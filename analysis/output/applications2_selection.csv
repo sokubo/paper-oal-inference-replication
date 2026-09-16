@@ -1,0 +1,149 @@
+"outcome","column","full","out_thr","out_bic","oal_fix","oal_wamd","oads_thr","oads_bic","trt_bic","bch"
+"30-day survival (risk difference)","cat1COPD",1,0.2,0,0,1,0.2,0,1,1
+"30-day survival (risk difference)","cat1CHF",1,0,0,0,1,0,0,1,1
+"30-day survival (risk difference)","cat1Cirrhosis",1,0,0,0,1,0,0,1,1
+"30-day survival (risk difference)","cat1Coma",1,1,1,1,1,1,1,0.8,1
+"30-day survival (risk difference)","cat1Colon Cancer",1,0.2,0,0,1,0.2,0,0,0
+"30-day survival (risk difference)","cat1Lung Cancer",1,0,0,0,1,0,0,0,0
+"30-day survival (risk difference)","cat1MOSF w/Malignancy",1,1,0,0,1,1,0,0.2,0.2
+"30-day survival (risk difference)","cat1MOSF w/Sepsis",1,0,0,0,1,0,0,1,1
+"30-day survival (risk difference)","cat2Colon Cancer",1,0.4,0,0,1,0.4,0,0.2,0.2
+"30-day survival (risk difference)","cat2Coma",1,0.4,0.2,0,1,0.4,0.2,0.4,0.6
+"30-day survival (risk difference)","cat2Lung Cancer",1,0,0.2,0,0.8,0,0.2,0.2,0.4
+"30-day survival (risk difference)","cat2MOSF w/Malignancy",1,0.8,0,0,1,0.8,0,1,1
+"30-day survival (risk difference)","cat2MOSF w/Sepsis",1,1,0,1,1,1,1,1,1
+"30-day survival (risk difference)","cat2None",1,1,0.6,1,1,1,1,0,0.6
+"30-day survival (risk difference)","caYes",1,0.2,0,0,0.8,0.2,0,0,0
+"30-day survival (risk difference)","caMetastatic",1,0.4,0,0,0.8,0.4,0,0,0
+"30-day survival (risk difference)","cardiohx",1,0,0,0,0.8,0,0,0.2,0.2
+"30-day survival (risk difference)","chfhx",1,0,0,0,0.8,0,0,0.2,0.2
+"30-day survival (risk difference)","dementhx",1,0,0,0,0.8,0,0,1,1
+"30-day survival (risk difference)","psychhx",1,0,0,0,1,0,0,0.8,0.8
+"30-day survival (risk difference)","chrpulhx",1,0,0,0,1,0,0,0.2,0.2
+"30-day survival (risk difference)","renalhx",1,0,0,0,1,0,0,0.2,0.2
+"30-day survival (risk difference)","liverhx",1,0,0.8,0,1,0,0.8,0,0.8
+"30-day survival (risk difference)","gibledhx",1,0,0,0,0.8,0,0,0.2,0.2
+"30-day survival (risk difference)","malighx",1,0.2,0,0.2,1,0.2,0.2,1,1
+"30-day survival (risk difference)","immunhx",1,0,0,0,1,0,0,0.2,0.2
+"30-day survival (risk difference)","transhx",1,0,0,0,1,0,0,1,1
+"30-day survival (risk difference)","amihx",1,0,0,0,1,0,0,0,0
+"30-day survival (risk difference)","age",1,0,0,0,1,0,0,0.2,0.2
+"30-day survival (risk difference)","sexMale",1,0,0,0,1,0,0,0.2,0.2
+"30-day survival (risk difference)","edu",1,0,0,0,0.8,0,0,0.8,0.8
+"30-day survival (risk difference)","surv2md1",1,1,1,1,1,1,1,0.2,1
+"30-day survival (risk difference)","das2d3pc",1,0.8,0.6,0,1,0.8,0.6,0,0.6
+"30-day survival (risk difference)","aps1",1,0.4,1,0.2,1,0.4,1,1,1
+"30-day survival (risk difference)","scoma1",1,0,0.8,0,1,0,0.8,0.2,1
+"30-day survival (risk difference)","meanbp1",1,0,0,0,0.8,0,0,1,1
+"30-day survival (risk difference)","wblc1",1,0,0,0,0.8,0,0,0,0
+"30-day survival (risk difference)","hrt1",1,0,0,0,1,0,0,1,1
+"30-day survival (risk difference)","resp1",1,0,0,0,1,0,0,1,1
+"30-day survival (risk difference)","temp1",1,0,0,0,0.8,0,0,0.4,0.4
+"30-day survival (risk difference)","pafi1",1,0,0,0,1,0,0,1,1
+"30-day survival (risk difference)","alb1",1,0,0,0,1,0,0,0.8,0.8
+"30-day survival (risk difference)","hema1",1,0,0,0,1,0,0,1,1
+"30-day survival (risk difference)","bili1",1,1,1,0.6,1,1,1,0.2,1
+"30-day survival (risk difference)","crea1",1,0,0,0,1,0,0,0.8,0.8
+"30-day survival (risk difference)","sod1",1,0,0,0,1,0,0,1,1
+"30-day survival (risk difference)","pot1",1,0,0,0,1,0,0,1,1
+"30-day survival (risk difference)","paco21",1,0.2,0,0,1,0.2,0,1,1
+"30-day survival (risk difference)","ph1",1,0,0,0,1,0,0,0.6,0.6
+"30-day survival (risk difference)","wtkilo1",1,0,0,0,1,0,0,1,1
+"30-day survival (risk difference)","dnr1Yes",1,1,1,1,1,1,1,1,1
+"30-day survival (risk difference)","ninsclasPrivate",1,0.8,0,0,1,0.8,0,0.6,0.6
+"30-day survival (risk difference)","ninsclasMedicare",1,0.2,0,0,1,0.2,0,0.2,0.2
+"30-day survival (risk difference)","ninsclasMedicaid",1,1,0,0,1,1,0,1,1
+"30-day survival (risk difference)","ninsclasPrivate & Medicare",1,1,0,0,1,1,0,0,0
+"30-day survival (risk difference)","ninsclasMedicare & Medicaid",1,0.2,0,0,1,0.2,0,0,0
+"30-day survival (risk difference)","respYes",1,0,0,0,1,0,0,1,1
+"30-day survival (risk difference)","cardYes",1,0,0.2,0,0.8,0,0.2,1,1
+"30-day survival (risk difference)","neuroYes",1,0.2,0.2,0,1,0.2,0.2,1,1
+"30-day survival (risk difference)","gastrYes",1,0,0,0,1,0,0,1,1
+"30-day survival (risk difference)","renalYes",1,0,0,0,1,0,0,0.6,0.6
+"30-day survival (risk difference)","metaYes",1,0,0,0,0.8,0,0,0,0
+"30-day survival (risk difference)","hemaYes",1,0,1,0,1,0,1,0.8,1
+"30-day survival (risk difference)","sepsYes",1,0,0,0,0.8,0,0,0.4,0.4
+"30-day survival (risk difference)","traumaYes",1,0,0,0,1,0,0,1,1
+"30-day survival (risk difference)","orthoYes",1,0.2,0,0,0.8,0.2,0,0.2,0.2
+"30-day survival (risk difference)","urin1",1,0.8,1,0,1,0.8,1,0.2,1
+"30-day survival (risk difference)","raceblack",1,0,0,0,0.8,0,0,0,0
+"30-day survival (risk difference)","raceother",1,0,0,0,0.8,0,0,0,0
+"30-day survival (risk difference)","income$11-$25k",1,0,0,0,0.8,0,0,0,0
+"30-day survival (risk difference)","income$25-$50k",1,0,0.2,0,1,0,0.2,0,0.2
+"30-day survival (risk difference)","income> $50k",1,0.2,0,0,1,0.2,0,0,0
+"30-day survival (risk difference)","urin1_miss",1,0,0,0,0.8,0,0,0.8,0.8
+"30-day survival (risk difference)","wtkilo1_zero",1,0,0,0,1,0,0,0.2,0.2
+"length of stay (days)","cat1COPD",1,1,1,1,1,1,1,1,1
+"length of stay (days)","cat1CHF",1,1,1,1,1,1,1,1,1
+"length of stay (days)","cat1Cirrhosis",1,1,1,1,1,1,1,1,1
+"length of stay (days)","cat1Coma",1,1,1,1,1,1,1,1,1
+"length of stay (days)","cat1Colon Cancer",1,1,1,0,1,1,1,0,1
+"length of stay (days)","cat1Lung Cancer",1,1,1,0.8,1,1,1,0.2,1
+"length of stay (days)","cat1MOSF w/Malignancy",1,1,1,1,1,1,1,0,1
+"length of stay (days)","cat1MOSF w/Sepsis",1,1,1,1,1,1,1,1,1
+"length of stay (days)","cat2Colon Cancer",1,0.4,1,0,0.8,0.4,1,0,1
+"length of stay (days)","cat2Coma",1,1,1,0.2,1,1,1,0.8,1
+"length of stay (days)","cat2Lung Cancer",1,0.6,1,0,0.8,0.6,1,0.2,1
+"length of stay (days)","cat2MOSF w/Malignancy",1,1,1,0,1,1,1,1,1
+"length of stay (days)","cat2MOSF w/Sepsis",1,1,1,1,1,1,1,1,1
+"length of stay (days)","cat2None",1,1,1,1,1,1,1,0,1
+"length of stay (days)","caYes",1,0.8,1,0.4,1,0.8,1,0.2,1
+"length of stay (days)","caMetastatic",1,0.8,0.8,0,1,0.8,0.8,0.2,0.8
+"length of stay (days)","cardiohx",1,0.6,1,0.2,0.8,0.6,1,0.4,1
+"length of stay (days)","chfhx",1,1,1,0.8,1,1,1,0.2,1
+"length of stay (days)","dementhx",1,1,1,1,1,1,1,1,1
+"length of stay (days)","psychhx",1,0,1,0,1,0,1,1,1
+"length of stay (days)","chrpulhx",1,1,1,0.2,1,1,1,0.2,1
+"length of stay (days)","renalhx",1,1,1,1,1,1,1,0.4,1
+"length of stay (days)","liverhx",1,0.8,1,0,0.8,0.8,1,0,1
+"length of stay (days)","gibledhx",1,1,1,0.6,1,1,1,0.4,1
+"length of stay (days)","malighx",1,0.8,1,0.6,1,0.8,1,1,1
+"length of stay (days)","immunhx",1,0.2,1,0,0.8,0.2,1,0.2,1
+"length of stay (days)","transhx",1,1,1,1,1,1,1,1,1
+"length of stay (days)","amihx",1,0.6,1,0,1,0.6,1,0,1
+"length of stay (days)","age",1,1,1,1,1,1,1,0,1
+"length of stay (days)","sexMale",1,1,1,0,1,1,1,0.2,1
+"length of stay (days)","edu",1,0.8,1,0.2,0.8,0.8,1,1,1
+"length of stay (days)","surv2md1",1,1,1,1,1,1,1,0.6,1
+"length of stay (days)","das2d3pc",1,0.6,1,0,1,0.6,1,0,1
+"length of stay (days)","aps1",1,1,1,1,1,1,1,1,1
+"length of stay (days)","scoma1",1,1,1,0.6,1,1,1,0.2,1
+"length of stay (days)","meanbp1",1,0.6,1,0.4,1,0.6,1,1,1
+"length of stay (days)","wblc1",1,1,1,0,1,1,1,0,1
+"length of stay (days)","hrt1",1,1,1,1,1,1,1,1,1
+"length of stay (days)","resp1",1,0.6,1,0.2,1,0.6,1,1,1
+"length of stay (days)","temp1",1,1,1,0.8,1,1,1,0.6,1
+"length of stay (days)","pafi1",1,1,1,1,1,1,1,1,1
+"length of stay (days)","alb1",1,1,1,1,1,1,1,1,1
+"length of stay (days)","hema1",1,1,1,1,1,1,1,1,1
+"length of stay (days)","bili1",1,1,1,0.4,1,1,1,0.4,1
+"length of stay (days)","crea1",1,1,1,1,1,1,1,0.8,1
+"length of stay (days)","sod1",1,1,1,1,1,1,1,1,1
+"length of stay (days)","pot1",1,1,1,0.6,1,1,1,1,1
+"length of stay (days)","paco21",1,1,1,1,1,1,1,1,1
+"length of stay (days)","ph1",1,1,1,1,1,1,1,1,1
+"length of stay (days)","wtkilo1",1,0.8,1,0.6,1,0.8,1,1,1
+"length of stay (days)","dnr1Yes",1,1,1,1,1,1,1,1,1
+"length of stay (days)","ninsclasPrivate",1,0.8,1,0.4,0.8,0.8,1,1,1
+"length of stay (days)","ninsclasMedicare",1,0.8,1,0.2,1,0.8,1,0.8,1
+"length of stay (days)","ninsclasMedicaid",1,1,1,0.6,1,1,1,1,1
+"length of stay (days)","ninsclasPrivate & Medicare",1,0.8,1,0.2,0.8,0.8,1,0,1
+"length of stay (days)","ninsclasMedicare & Medicaid",1,0.8,1,0,1,0.8,1,0,1
+"length of stay (days)","respYes",1,1,1,0.8,1,1,1,1,1
+"length of stay (days)","cardYes",1,0.2,0.8,0,0.8,0.2,0.8,1,1
+"length of stay (days)","neuroYes",1,1,1,1,1,1,1,1,1
+"length of stay (days)","gastrYes",1,1,1,0.6,1,1,1,0.8,1
+"length of stay (days)","renalYes",1,0.6,1,0.4,1,0.6,1,1,1
+"length of stay (days)","metaYes",1,1,1,0,1,1,1,0,1
+"length of stay (days)","hemaYes",1,1,1,0.8,1,1,1,1,1
+"length of stay (days)","sepsYes",1,0.6,1,0,1,0.6,1,0.6,1
+"length of stay (days)","traumaYes",1,0.8,1,0.2,1,0.8,1,1,1
+"length of stay (days)","orthoYes",1,0.8,1,0,1,0.8,1,0.2,1
+"length of stay (days)","urin1",1,0.4,1,0,1,0.4,1,0.4,1
+"length of stay (days)","raceblack",1,1,1,0.2,1,1,1,0,1
+"length of stay (days)","raceother",1,0.2,1,0,1,0.2,1,0.2,1
+"length of stay (days)","income$11-$25k",1,0.8,1,0,1,0.8,1,0,1
+"length of stay (days)","income$25-$50k",1,1,1,1,1,1,1,0.4,1
+"length of stay (days)","income> $50k",1,1,1,0.2,1,1,1,0.2,1
+"length of stay (days)","urin1_miss",1,1,1,1,1,1,1,1,1
+"length of stay (days)","wtkilo1_zero",1,0.8,0.8,0.2,0.8,0.8,0.8,0.4,0.8

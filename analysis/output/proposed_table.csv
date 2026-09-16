@@ -1,0 +1,5 @@
+"regime","method","bias","emp_sd","se_ratio","coverage95","iv_retention","boundary_retention"
+"I: benign (n=500, p=20)","OADS + AIPW (proposed)",0.00208133192769777,0.295807372013522,0.963932533186085,0.932,0.63,1
+"I: benign (n=500, p=20)","BCH double selection + AIPW",0.0149794873457012,0.312521792677344,0.994498963458913,0.924,1,1
+"II: many controls (n=200, p=50)","OADS + AIPW (proposed)",0.0930732632894269,1.0480031322309,0.941573479256277,0.958,0.475,0.78
+"II: many controls (n=200, p=50)","BCH double selection + AIPW",-0.110744456437056,1.20748510504486,0.965951841315629,0.968,1,0.985

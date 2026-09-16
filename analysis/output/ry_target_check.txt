@@ -1,0 +1,12 @@
+ cell n_reps bias_ate mean_target_minus_ate sd_target emp_sd mean_se_emp
+    I    100   0.0236                0.0265   0.00359  0.459       0.425
+   II    100   0.0692                0.0344   0.07690  1.877       1.998
+  III    100   0.0147                0.0342   0.02497  0.169       0.177
+ mean_se_stk cov_ate_emp cov_ate_stk cov_target_emp cov_target_stk mcse_cov
+       0.481        0.93        0.94           0.92           0.94   0.0218
+       2.928        0.95        1.00           0.96           1.00   0.0218
+       0.188        0.96        0.97           0.96           0.97   0.0218
+ mean_size p_superset
+      16.5       1.00
+      38.2       0.69
+      15.5       0.60

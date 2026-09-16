@@ -1,0 +1,26 @@
+                            regime tune  method     bias emp_sd se_ratio
+1          I: benign (n=500, p=20) wamd  oracle  0.00684  0.204    0.997
+2          I: benign (n=500, p=20) wamd    full  0.00913  0.236    0.990
+3          I: benign (n=500, p=20) wamd oal_ipw  0.13636  0.292    1.111
+4          I: benign (n=500, p=20) wamd oal_ols  0.00858  0.235    0.950
+5  II: many controls (n=200, p=50)  bic  oracle  0.01931  0.323    0.993
+6  II: many controls (n=200, p=50)  bic    full -0.01435  0.400    1.033
+7  II: many controls (n=200, p=50)  bic oal_ipw  0.33339  0.368    0.993
+8  II: many controls (n=200, p=50)  bic oal_ols  0.08005  0.380    0.894
+9  II: many controls (n=200, p=50) wamd  oracle  0.01931  0.323    0.993
+10 II: many controls (n=200, p=50) wamd    full -0.01435  0.400    1.033
+11 II: many controls (n=200, p=50) wamd oal_ipw  0.21869  0.422    0.994
+12 II: many controls (n=200, p=50) wamd oal_ols -0.00142  0.397    0.915
+   coverage95 z3_rate z4_rate
+1       0.942   1.000   1.000
+2       0.940   1.000   1.000
+3       0.922   1.000   1.000
+4       0.930   1.000   1.000
+5       0.948   0.494   0.474
+6       0.956   0.494   0.474
+7       0.838   0.494   0.474
+8       0.912   0.494   0.474
+9       0.948   0.886   0.882
+10      0.956   0.886   0.882
+11      0.908   0.886   0.882
+12      0.926   0.886   0.882

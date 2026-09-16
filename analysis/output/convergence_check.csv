@@ -1,0 +1,180 @@
+# convergence_check.R  run on 2026-09-16 11:09; replications per cell: main 25, boundary 10; cores 12; 0.7 min
+# fits = propensity/outcome refits examined (folds x replications); ps_nonconv = logistic refit at glm.fit's iteration limit;
+# ps_boundary = fitted probabilities numerically at 0/1; *_rankdef_fits = refits with aliased coefficients (set to zero);
+# ginv_fits = refits in which a sandwich block was solved with a generalized inverse; trim_frac = share of test-fold
+# propensities clipped; max_dpsi_maxit / max_dcorr_maxit = largest change in a pseudo-observation / correction term when
+# a non-converged propensity refit is repeated with maxit = 200 (NA when no refit was non-converged);
+# max_d_est_maxit / max_d_se_stk_maxit / cov_flips_maxit = largest change in a replication's arm estimate / stacked SE,
+# and number of replications whose 95 percent stacked-interval coverage indicator changes, under the maxit = 200 refits.
+"cell","design","n","p","arm","arm_label","pilot","reps","fits","mean_dim","ps_nonconv","ps_boundary","ps_rankdef_fits","out_rankdef_fits","ginv_fits","trim_frac","max_dpsi_maxit","max_dcorr_maxit","est_check","max_d_est_maxit","max_d_se_stk_maxit","cov_flips_maxit"
+"I","I (n=500,p=20)",500,20,"oracle","oracle set + AIPW","ols",25,125,7,0,0,0,0,0,0.02664,NA,NA,0,0,0,0
+"I","I (n=500,p=20)",500,20,"full","full set + AIPW","ols",25,125,21,0,0,0,0,0,0.22928,NA,NA,0,0,0,0
+"I","I (n=500,p=20)",500,20,"out_thr","outcome-only thresholded + AIPW","ols",25,125,7.088,0,0,0,0,0,0.02784,NA,NA,0,0,0,0
+"I","I (n=500,p=20)",500,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",25,125,15.28,0,0,0,0,0,0.12984,NA,NA,0,0,0,0
+"I","I (n=500,p=20)",500,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",25,125,5.416,0,0,0,0,0,0.02672,NA,NA,0,0,0,0
+"I","I (n=500,p=20)",500,20,"oal_wamd","naive OAL selection (wAMD) + AIPW","ols",25,125,12.336,0,0,0,0,0,0.14656,NA,NA,0,0,0,0
+"I","I (n=500,p=20)",500,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",25,125,7.096,0,0,0,0,0,0.02864,NA,NA,0,0,0,0
+"I","I (n=500,p=20)",500,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",25,125,15.28,0,0,0,0,0,0.12984,NA,NA,0,0,0,0
+"I","I (n=500,p=20)",500,20,"trt_bic","treatment-only BIC-lasso + AIPW","ols",25,125,9.784,0,0,0,0,0,0.21152,NA,NA,0,0,0,0
+"I","I (n=500,p=20)",500,20,"bch","BCH double selection + AIPW","ols",25,125,17.184,0,0,0,0,0,0.22376,NA,NA,0,0,0,0
+"II","II (n=200,p=50)",200,50,"oracle","oracle set + AIPW","ols",25,125,7,0,0,0,0,0,0.0266,NA,NA,0,0,0,0
+"II","II (n=200,p=50)",200,50,"full","full set + AIPW","ols",25,125,51,42,0,0,0,5,0.7932,79.0244794723967,131.148260733728,0,0.559508230098695,0.112776345544713,0
+"II","II (n=200,p=50)",200,50,"out_thr","outcome-only thresholded + AIPW","ols",25,125,6.224,0,0,0,0,0,0.0078,NA,NA,0,0,0,0
+"II","II (n=200,p=50)",200,50,"out_bic","outcome-only BIC-lasso + AIPW","ols",25,125,25.768,0,0,0,0,0,0.2094,NA,NA,0,0,0,0
+"II","II (n=200,p=50)",200,50,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",25,125,3.168,0,0,0,0,0,0.007,NA,NA,0,0,0,0
+"II","II (n=200,p=50)",200,50,"oal_wamd","naive OAL selection (wAMD) + AIPW","ols",25,125,23.888,0,0,0,0,0,0.3198,NA,NA,0,0,0,0
+"II","II (n=200,p=50)",200,50,"oads_thr","ODS-thr (theory object) + AIPW","ols",25,125,6.272,0,0,0,0,0,0.0102,NA,NA,0,0,0,0
+"II","II (n=200,p=50)",200,50,"oads_bic","ODS-bic (software variant) + AIPW","ols",25,125,25.776,0,0,0,0,0,0.2102,NA,NA,0,0,0,0
+"II","II (n=200,p=50)",200,50,"trt_bic","treatment-only BIC-lasso + AIPW","ols",25,125,8.176,0,0,0,0,0,0.2354,NA,NA,0,0,0,0
+"II","II (n=200,p=50)",200,50,"bch","BCH double selection + AIPW","ols",25,125,28.552,0,0,0,0,0,0.4174,NA,NA,0,0,0,0
+"III","III (n=2000,p=20, local boundary)",2000,20,"oracle","oracle set + AIPW","ols",25,125,7,0,0,0,0,0,0.03524,NA,NA,0,0,0,0
+"III","III (n=2000,p=20, local boundary)",2000,20,"full","full set + AIPW","ols",25,125,21,0,0,0,0,0,0.21326,NA,NA,0,0,0,0
+"III","III (n=2000,p=20, local boundary)",2000,20,"out_thr","outcome-only thresholded + AIPW","ols",25,125,5.016,0,0,0,0,0,2e-04,NA,NA,0,0,0,0
+"III","III (n=2000,p=20, local boundary)",2000,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",25,125,11.848,0,0,0,0,0,0.06476,NA,NA,0,0,0,0
+"III","III (n=2000,p=20, local boundary)",2000,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",25,125,3.624,0,0,0,0,0,0.00064,NA,NA,0,0,0,0
+"III","III (n=2000,p=20, local boundary)",2000,20,"oal_wamd","naive OAL selection (wAMD) + AIPW","ols",25,125,13.256,0,0,0,0,0,0.14386,NA,NA,0,0,0,0
+"III","III (n=2000,p=20, local boundary)",2000,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",25,125,5.064,0,0,0,0,0,7e-04,NA,NA,0,0,0,0
+"III","III (n=2000,p=20, local boundary)",2000,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",25,125,11.848,0,0,0,0,0,0.06476,NA,NA,0,0,0,0
+"III","III (n=2000,p=20, local boundary)",2000,20,"trt_bic","treatment-only BIC-lasso + AIPW","ols",25,125,9.464,0,0,0,0,0,0.2108,NA,NA,0,0,0,0
+"III","III (n=2000,p=20, local boundary)",2000,20,"bch","BCH double selection + AIPW","ols",25,125,15.128,0,0,0,0,0,0.21216,NA,NA,0,0,0,0
+"M","M (misspecified OM)",500,20,"oracle","oracle set + AIPW","ols",25,125,7,0,0,0,0,0,0.02208,NA,NA,0,0,0,0
+"M","M (misspecified OM)",500,20,"full","full set + AIPW","ols",25,125,21,0,0,0,0,0,0.22712,NA,NA,0,0,0,0
+"M","M (misspecified OM)",500,20,"out_thr","outcome-only thresholded + AIPW","ols",25,125,7.152,0,0,0,0,0,0.02208,NA,NA,0,0,0,0
+"M","M (misspecified OM)",500,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",25,125,15.168,0,0,0,0,0,0.12232,NA,NA,0,0,0,0
+"M","M (misspecified OM)",500,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",25,125,5.328,0,0,0,0,0,0.02288,NA,NA,0,0,0,0
+"M","M (misspecified OM)",500,20,"oal_wamd","naive OAL selection (wAMD) + AIPW","ols",25,125,13.248,0,0,0,0,0,0.14696,NA,NA,0,0,0,0
+"M","M (misspecified OM)",500,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",25,125,7.176,0,0,0,0,0,0.02424,NA,NA,0,0,0,0
+"M","M (misspecified OM)",500,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",25,125,15.168,0,0,0,0,0,0.12232,NA,NA,0,0,0,0
+"M","M (misspecified OM)",500,20,"trt_bic","treatment-only BIC-lasso + AIPW","ols",25,125,9.248,0,0,0,0,0,0.20816,NA,NA,0,0,0,0
+"M","M (misspecified OM)",500,20,"bch","BCH double selection + AIPW","ols",25,125,16.92,0,0,0,0,0,0.22032,NA,NA,0,0,0,0
+"P1","P1 (n=500,p=100)",500,100,"oracle","oracle set + AIPW","ols",25,125,7,0,0,0,0,0,0.0128,NA,NA,0,0,0,0
+"P1","P1 (n=500,p=100)",500,100,"full","full set + AIPW","ols",25,125,101,0,0,0,0,0,0.54592,NA,NA,0,0,0,0
+"P1","P1 (n=500,p=100)",500,100,"out_thr","outcome-only thresholded + AIPW","ols",25,125,6.728,0,0,0,0,0,0.00584,NA,NA,0,0,0,0
+"P1","P1 (n=500,p=100)",500,100,"out_bic","outcome-only BIC-lasso + AIPW","ols",25,125,37.92,0,0,0,0,0,0.10248,NA,NA,0,0,0,0
+"P1","P1 (n=500,p=100)",500,100,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",25,125,4.072,0,0,0,0,0,0.00768,NA,NA,0,0,0,0
+"P1","P1 (n=500,p=100)",500,100,"oal_wamd","naive OAL selection (wAMD) + AIPW","ols",25,125,34.952,0,0,0,0,0,0.22352,NA,NA,0,0,0,0
+"P1","P1 (n=500,p=100)",500,100,"oads_thr","ODS-thr (theory object) + AIPW","ols",25,125,6.776,0,0,0,0,0,0.00864,NA,NA,0,0,0,0
+"P1","P1 (n=500,p=100)",500,100,"oads_bic","ODS-bic (software variant) + AIPW","ols",25,125,37.928,0,0,0,0,0,0.10336,NA,NA,0,0,0,0
+"P1","P1 (n=500,p=100)",500,100,"trt_bic","treatment-only BIC-lasso + AIPW","ols",25,125,9.312,0,0,0,0,0,0.19368,NA,NA,0,0,0,0
+"P1","P1 (n=500,p=100)",500,100,"bch","BCH double selection + AIPW","ols",25,125,40.984,0,0,0,0,0,0.28088,NA,NA,0,0,0,0
+"P2","P2 (n=500,p=200)",500,200,"oracle","oracle set + AIPW","ridge",25,125,7,0,0,0,0,0,0.01536,NA,NA,0,0,0,0
+"P2","P2 (n=500,p=200)",500,200,"out_thr","outcome-only thresholded + AIPW","ridge",25,125,8.416,0,0,0,0,0,0.0048,NA,NA,0,0,0,0
+"P2","P2 (n=500,p=200)",500,200,"out_bic","outcome-only BIC-lasso + AIPW","ridge",25,125,53.992,0,0,0,0,0,0.13824,NA,NA,0,0,0,0
+"P2","P2 (n=500,p=200)",500,200,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ridge",25,125,3.728,0,0,0,0,0,0.00416,NA,NA,0,0,0,0
+"P2","P2 (n=500,p=200)",500,200,"oal_wamd","naive OAL selection (wAMD) + AIPW","ridge",25,125,61.976,12,0,0,0,1,0.40072,119.946230336694,32.445614904007,0,0.474768417147779,0.0279475381295688,0
+"P2","P2 (n=500,p=200)",500,200,"oads_thr","ODS-thr (theory object) + AIPW","ridge",25,125,8.472,0,0,0,0,0,0.00648,NA,NA,0,0,0,0
+"P2","P2 (n=500,p=200)",500,200,"oads_bic","ODS-bic (software variant) + AIPW","ridge",25,125,54.008,0,0,0,0,0,0.1396,NA,NA,0,0,0,0
+"P2","P2 (n=500,p=200)",500,200,"trt_bic","treatment-only BIC-lasso + AIPW","ridge",25,125,9.712,0,0,0,0,0,0.20624,NA,NA,0,0,0,0
+"P2","P2 (n=500,p=200)",500,200,"bch","BCH double selection + AIPW","ridge",25,125,58.008,0,0,0,0,0,0.36544,NA,NA,0,0,0,0
+"C","C (AR(1) rho=.5, n=500,p=20)",500,20,"oracle","oracle set + AIPW","ols",25,125,7,0,0,0,0,0,0.12256,NA,NA,0,0,0,0
+"C","C (AR(1) rho=.5, n=500,p=20)",500,20,"full","full set + AIPW","ols",25,125,21,0,0,0,0,0,0.37184,NA,NA,0,0,0,0
+"C","C (AR(1) rho=.5, n=500,p=20)",500,20,"out_thr","outcome-only thresholded + AIPW","ols",25,125,7.224,0,0,0,0,0,0.13136,NA,NA,0,0,0,0
+"C","C (AR(1) rho=.5, n=500,p=20)",500,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",25,125,13.264,0,0,0,0,0,0.2484,NA,NA,0,0,0,0
+"C","C (AR(1) rho=.5, n=500,p=20)",500,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",25,125,6.088,0,0,0,0,0,0.13144,NA,NA,0,0,0,0
+"C","C (AR(1) rho=.5, n=500,p=20)",500,20,"oal_wamd","naive OAL selection (wAMD) + AIPW","ols",25,125,15.016,0,0,0,0,0,0.31328,NA,NA,0,0,0,0
+"C","C (AR(1) rho=.5, n=500,p=20)",500,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",25,125,7.264,0,0,0,0,0,0.13704,NA,NA,0,0,0,0
+"C","C (AR(1) rho=.5, n=500,p=20)",500,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",25,125,13.272,0,0,0,0,0,0.24896,NA,NA,0,0,0,0
+"C","C (AR(1) rho=.5, n=500,p=20)",500,20,"trt_bic","treatment-only BIC-lasso + AIPW","ols",25,125,9.024,0,0,0,0,0,0.3456,NA,NA,0,0,0,0
+"C","C (AR(1) rho=.5, n=500,p=20)",500,20,"bch","BCH double selection + AIPW","ols",25,125,15.304,0,0,0,0,0,0.35928,NA,NA,0,0,0,0
+"Bd","Bd (bounded Rademacher, n=500,p=20)",500,20,"oracle","oracle set + AIPW","ols",25,125,7,0,0,0,0,0,0,NA,NA,0,0,0,0
+"Bd","Bd (bounded Rademacher, n=500,p=20)",500,20,"full","full set + AIPW","ols",25,125,21,0,0,0,0,0,0.02936,NA,NA,0,0,0,0
+"Bd","Bd (bounded Rademacher, n=500,p=20)",500,20,"out_thr","outcome-only thresholded + AIPW","ols",25,125,7.032,0,0,0,0,0,0,NA,NA,0,0,0,0
+"Bd","Bd (bounded Rademacher, n=500,p=20)",500,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",25,125,15.456,0,0,0,0,0,0.00992,NA,NA,0,0,0,0
+"Bd","Bd (bounded Rademacher, n=500,p=20)",500,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",25,125,5.288,0,0,0,0,0,0,NA,NA,0,0,0,0
+"Bd","Bd (bounded Rademacher, n=500,p=20)",500,20,"oal_wamd","naive OAL selection (wAMD) + AIPW","ols",25,125,15.048,0,0,0,0,0,0.01288,NA,NA,0,0,0,0
+"Bd","Bd (bounded Rademacher, n=500,p=20)",500,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",25,125,7.04,0,0,0,0,0,0,NA,NA,0,0,0,0
+"Bd","Bd (bounded Rademacher, n=500,p=20)",500,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",25,125,15.456,0,0,0,0,0,0.00992,NA,NA,0,0,0,0
+"Bd","Bd (bounded Rademacher, n=500,p=20)",500,20,"trt_bic","treatment-only BIC-lasso + AIPW","ols",25,125,8.48,0,0,0,0,0,0.018,NA,NA,0,0,0,0
+"Bd","Bd (bounded Rademacher, n=500,p=20)",500,20,"bch","BCH double selection + AIPW","ols",25,125,16.896,0,0,0,0,0,0.02592,NA,NA,0,0,0,0
+"H","H (heteroscedastic, n=500,p=20)",500,20,"oracle","oracle set + AIPW","ols",25,125,7,0,0,0,0,0,0.0228,NA,NA,0,0,0,0
+"H","H (heteroscedastic, n=500,p=20)",500,20,"full","full set + AIPW","ols",25,125,21,0,0,0,0,0,0.222,NA,NA,0,0,0,0
+"H","H (heteroscedastic, n=500,p=20)",500,20,"out_thr","outcome-only thresholded + AIPW","ols",25,125,7.024,0,0,0,0,0,0.0232,NA,NA,0,0,0,0
+"H","H (heteroscedastic, n=500,p=20)",500,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",25,125,15.088,0,0,0,0,0,0.12104,NA,NA,0,0,0,0
+"H","H (heteroscedastic, n=500,p=20)",500,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",25,125,5.264,0,0,0,0,0,0.02264,NA,NA,0,0,0,0
+"H","H (heteroscedastic, n=500,p=20)",500,20,"oal_wamd","naive OAL selection (wAMD) + AIPW","ols",25,125,13.096,0,0,0,0,0,0.13896,NA,NA,0,0,0,0
+"H","H (heteroscedastic, n=500,p=20)",500,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",25,125,7.04,0,0,0,0,0,0.02408,NA,NA,0,0,0,0
+"H","H (heteroscedastic, n=500,p=20)",500,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",25,125,15.088,0,0,0,0,0,0.12104,NA,NA,0,0,0,0
+"H","H (heteroscedastic, n=500,p=20)",500,20,"trt_bic","treatment-only BIC-lasso + AIPW","ols",25,125,9.76,0,0,0,0,0,0.20392,NA,NA,0,0,0,0
+"H","H (heteroscedastic, n=500,p=20)",500,20,"bch","BCH double selection + AIPW","ols",25,125,16.88,0,0,0,0,0,0.21368,NA,NA,0,0,0,0
+"IV6","IV6 (six instruments, n=500,p=20)",500,20,"oracle","oracle set + AIPW","ols",25,125,7,0,0,0,0,0,0.00296,NA,NA,0,0,0,0
+"IV6","IV6 (six instruments, n=500,p=20)",500,20,"full","full set + AIPW","ols",25,125,21,0,0,0,0,0,0.36624,NA,NA,0,0,0,0
+"IV6","IV6 (six instruments, n=500,p=20)",500,20,"out_thr","outcome-only thresholded + AIPW","ols",25,125,7.032,0,0,0,0,0,0.00328,NA,NA,0,0,0,0
+"IV6","IV6 (six instruments, n=500,p=20)",500,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",25,125,14.744,0,0,0,0,0,0.14528,NA,NA,0,0,0,0
+"IV6","IV6 (six instruments, n=500,p=20)",500,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",25,125,5.248,0,0,0,0,0,0.00288,NA,NA,0,0,0,0
+"IV6","IV6 (six instruments, n=500,p=20)",500,20,"oal_wamd","naive OAL selection (wAMD) + AIPW","ols",25,125,13.264,0,0,0,0,0,0.17344,NA,NA,0,0,0,0
+"IV6","IV6 (six instruments, n=500,p=20)",500,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",25,125,7.032,0,0,0,0,0,0.00328,NA,NA,0,0,0,0
+"IV6","IV6 (six instruments, n=500,p=20)",500,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",25,125,14.744,0,0,0,0,0,0.14528,NA,NA,0,0,0,0
+"IV6","IV6 (six instruments, n=500,p=20)",500,20,"trt_bic","treatment-only BIC-lasso + AIPW","ols",25,125,15.008,0,0,0,0,0,0.3628,NA,NA,0,0,0,0
+"IV6","IV6 (six instruments, n=500,p=20)",500,20,"bch","BCH double selection + AIPW","ols",25,125,18.952,0,0,0,0,0,0.36512,NA,NA,0,0,0,0
+"B500_k1.50","B (boundary seq., kappa=1.50, b_n=0.693)",500,20,"oracle","oracle set + AIPW","ols",10,50,7,0,0,0,0,0,0.0472,NA,NA,0,0,0,0
+"B500_k1.50","B (boundary seq., kappa=1.50, b_n=0.693)",500,20,"full","full set + AIPW","ols",10,50,21,0,0,0,0,0,0.2728,NA,NA,0,0,0,0
+"B500_k1.50","B (boundary seq., kappa=1.50, b_n=0.693)",500,20,"out_thr","outcome-only thresholded + AIPW","ols",10,50,7.06,0,0,0,0,0,0.0472,NA,NA,0,0,0,0
+"B500_k1.50","B (boundary seq., kappa=1.50, b_n=0.693)",500,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",10,50,14.02,0,0,0,0,0,0.1708,NA,NA,0,0,0,0
+"B500_k1.50","B (boundary seq., kappa=1.50, b_n=0.693)",500,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",10,50,5.22,0,0,0,0,0,0.0468,NA,NA,0,0,0,0
+"B500_k1.50","B (boundary seq., kappa=1.50, b_n=0.693)",500,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",10,50,7.06,0,0,0,0,0,0.0472,NA,NA,0,0,0,0
+"B500_k1.50","B (boundary seq., kappa=1.50, b_n=0.693)",500,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",10,50,14.02,0,0,0,0,0,0.1708,NA,NA,0,0,0,0
+"B500_k1.50","B (boundary seq., kappa=1.50, b_n=0.693)",500,20,"bch","BCH double selection + AIPW","ols",10,50,16.04,0,0,0,0,0,0.2618,NA,NA,0,0,0,0
+"B500_k1.10","B (boundary seq., kappa=1.10, b_n=0.334)",500,20,"oracle","oracle set + AIPW","ols",10,50,7,0,0,0,0,0,0.0402,NA,NA,0,0,0,0
+"B500_k1.10","B (boundary seq., kappa=1.10, b_n=0.334)",500,20,"full","full set + AIPW","ols",10,50,21,0,0,0,0,0,0.2482,NA,NA,0,0,0,0
+"B500_k1.10","B (boundary seq., kappa=1.10, b_n=0.334)",500,20,"out_thr","outcome-only thresholded + AIPW","ols",10,50,6.48,0,0,0,0,0,0.0214,NA,NA,0,0,0,0
+"B500_k1.10","B (boundary seq., kappa=1.10, b_n=0.334)",500,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",10,50,14.52,0,0,0,0,0,0.1402,NA,NA,0,0,0,0
+"B500_k1.10","B (boundary seq., kappa=1.10, b_n=0.334)",500,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",10,50,4.86,0,0,0,0,0,0.0256,NA,NA,0,0,0,0
+"B500_k1.10","B (boundary seq., kappa=1.10, b_n=0.334)",500,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",10,50,6.6,0,0,0,0,0,0.0252,NA,NA,0,0,0,0
+"B500_k1.10","B (boundary seq., kappa=1.10, b_n=0.334)",500,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",10,50,14.52,0,0,0,0,0,0.1402,NA,NA,0,0,0,0
+"B500_k1.10","B (boundary seq., kappa=1.10, b_n=0.334)",500,20,"bch","BCH double selection + AIPW","ols",10,50,16.58,0,0,0,0,0,0.2412,NA,NA,0,0,0,0
+"B500_k0.75","B (boundary seq., kappa=0.75, b_n=0.176)",500,20,"oracle","oracle set + AIPW","ols",10,50,7,0,0,0,0,0,0.0478,NA,NA,0,0,0,0
+"B500_k0.75","B (boundary seq., kappa=0.75, b_n=0.176)",500,20,"full","full set + AIPW","ols",10,50,21,0,0,0,0,0,0.2888,NA,NA,0,0,0,0
+"B500_k0.75","B (boundary seq., kappa=0.75, b_n=0.176)",500,20,"out_thr","outcome-only thresholded + AIPW","ols",10,50,5.48,0,0,0,0,0,0.005,NA,NA,0,0,0,0
+"B500_k0.75","B (boundary seq., kappa=0.75, b_n=0.176)",500,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",10,50,15.52,0,0,0,0,0,0.1532,NA,NA,0,0,0,0
+"B500_k0.75","B (boundary seq., kappa=0.75, b_n=0.176)",500,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",10,50,3.92,0,0,0,0,0,0.0072,NA,NA,0,0,0,0
+"B500_k0.75","B (boundary seq., kappa=0.75, b_n=0.176)",500,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",10,50,5.52,0,0,0,0,0,0.0078,NA,NA,0,0,0,0
+"B500_k0.75","B (boundary seq., kappa=0.75, b_n=0.176)",500,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",10,50,15.52,0,0,0,0,0,0.1532,NA,NA,0,0,0,0
+"B500_k0.75","B (boundary seq., kappa=0.75, b_n=0.176)",500,20,"bch","BCH double selection + AIPW","ols",10,50,17.68,0,0,0,0,0,0.2798,NA,NA,0,0,0,0
+"B2000_k1.50","B (boundary seq., kappa=1.50, b_n=0.469)",2000,20,"oracle","oracle set + AIPW","ols",10,50,7,0,0,0,0,0,0.0273,NA,NA,0,0,0,0
+"B2000_k1.50","B (boundary seq., kappa=1.50, b_n=0.469)",2000,20,"full","full set + AIPW","ols",10,50,21,0,0,0,0,0,0.2088,NA,NA,0,0,0,0
+"B2000_k1.50","B (boundary seq., kappa=1.50, b_n=0.469)",2000,20,"out_thr","outcome-only thresholded + AIPW","ols",10,50,7,0,0,0,0,0,0.0273,NA,NA,0,0,0,0
+"B2000_k1.50","B (boundary seq., kappa=1.50, b_n=0.469)",2000,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",10,50,13.68,0,0,0,0,0,0.08165,NA,NA,0,0,0,0
+"B2000_k1.50","B (boundary seq., kappa=1.50, b_n=0.469)",2000,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",10,50,5.9,0,0,0,0,0,0.03065,NA,NA,0,0,0,0
+"B2000_k1.50","B (boundary seq., kappa=1.50, b_n=0.469)",2000,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",10,50,7.04,0,0,0,0,0,0.03085,NA,NA,0,0,0,0
+"B2000_k1.50","B (boundary seq., kappa=1.50, b_n=0.469)",2000,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",10,50,13.68,0,0,0,0,0,0.08165,NA,NA,0,0,0,0
+"B2000_k1.50","B (boundary seq., kappa=1.50, b_n=0.469)",2000,20,"bch","BCH double selection + AIPW","ols",10,50,16.12,0,0,0,0,0,0.206,NA,NA,0,0,0,0
+"B2000_k1.10","B (boundary seq., kappa=1.10, b_n=0.208)",2000,20,"oracle","oracle set + AIPW","ols",10,50,7,0,0,0,0,0,0.03675,NA,NA,0,0,0,0
+"B2000_k1.10","B (boundary seq., kappa=1.10, b_n=0.208)",2000,20,"full","full set + AIPW","ols",10,50,21,0,0,0,0,0,0.2138,NA,NA,0,0,0,0
+"B2000_k1.10","B (boundary seq., kappa=1.10, b_n=0.208)",2000,20,"out_thr","outcome-only thresholded + AIPW","ols",10,50,6.36,0,0,0,0,0,0.0177,NA,NA,0,0,0,0
+"B2000_k1.10","B (boundary seq., kappa=1.10, b_n=0.208)",2000,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",10,50,13.64,0,0,0,0,0,0.1226,NA,NA,0,0,0,0
+"B2000_k1.10","B (boundary seq., kappa=1.10, b_n=0.208)",2000,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",10,50,5.12,0,0,0,0,0,0.0219,NA,NA,0,0,0,0
+"B2000_k1.10","B (boundary seq., kappa=1.10, b_n=0.208)",2000,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",10,50,6.52,0,0,0,0,0,0.0221,NA,NA,0,0,0,0
+"B2000_k1.10","B (boundary seq., kappa=1.10, b_n=0.208)",2000,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",10,50,13.64,0,0,0,0,0,0.1226,NA,NA,0,0,0,0
+"B2000_k1.10","B (boundary seq., kappa=1.10, b_n=0.208)",2000,20,"bch","BCH double selection + AIPW","ols",10,50,15.52,0,0,0,0,0,0.2121,NA,NA,0,0,0,0
+"B2000_k0.75","B (boundary seq., kappa=0.75, b_n=0.102)",2000,20,"oracle","oracle set + AIPW","ols",10,50,7,0,0,0,0,0,0.02765,NA,NA,0,0,0,0
+"B2000_k0.75","B (boundary seq., kappa=0.75, b_n=0.102)",2000,20,"full","full set + AIPW","ols",10,50,21,0,0,0,0,0,0.2075,NA,NA,0,0,0,0
+"B2000_k0.75","B (boundary seq., kappa=0.75, b_n=0.102)",2000,20,"out_thr","outcome-only thresholded + AIPW","ols",10,50,5.02,0,0,0,0,0,1e-04,NA,NA,0,0,0,0
+"B2000_k0.75","B (boundary seq., kappa=0.75, b_n=0.102)",2000,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",10,50,11.96,0,0,0,0,0,0.0686,NA,NA,0,0,0,0
+"B2000_k0.75","B (boundary seq., kappa=0.75, b_n=0.102)",2000,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",10,50,3.76,0,0,0,0,0,0.00045,NA,NA,0,0,0,0
+"B2000_k0.75","B (boundary seq., kappa=0.75, b_n=0.102)",2000,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",10,50,5.1,0,0,0,0,0,4e-04,NA,NA,0,0,0,0
+"B2000_k0.75","B (boundary seq., kappa=0.75, b_n=0.102)",2000,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",10,50,11.96,0,0,0,0,0,0.0686,NA,NA,0,0,0,0
+"B2000_k0.75","B (boundary seq., kappa=0.75, b_n=0.102)",2000,20,"bch","BCH double selection + AIPW","ols",10,50,14.94,0,0,0,0,0,0.20565,NA,NA,0,0,0,0
+"B8000_k1.50","B (boundary seq., kappa=1.50, b_n=0.301)",8000,20,"oracle","oracle set + AIPW","ols",10,50,7,0,0,0,0,0,0.032025,NA,NA,0,0,0,0
+"B8000_k1.50","B (boundary seq., kappa=1.50, b_n=0.301)",8000,20,"full","full set + AIPW","ols",10,50,21,0,0,0,0,0,0.207825,NA,NA,0,0,0,0
+"B8000_k1.50","B (boundary seq., kappa=1.50, b_n=0.301)",8000,20,"out_thr","outcome-only thresholded + AIPW","ols",10,50,7,0,0,0,0,0,0.032025,NA,NA,0,0,0,0
+"B8000_k1.50","B (boundary seq., kappa=1.50, b_n=0.301)",8000,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",10,50,12.62,0,0,0,0,0,0.101525,NA,NA,0,0,0,0
+"B8000_k1.50","B (boundary seq., kappa=1.50, b_n=0.301)",8000,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",10,50,5.86,0,0,0,0,0,0.0318625,NA,NA,0,0,0,0
+"B8000_k1.50","B (boundary seq., kappa=1.50, b_n=0.301)",8000,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",10,50,7,0,0,0,0,0,0.032025,NA,NA,0,0,0,0
+"B8000_k1.50","B (boundary seq., kappa=1.50, b_n=0.301)",8000,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",10,50,12.62,0,0,0,0,0,0.101525,NA,NA,0,0,0,0
+"B8000_k1.50","B (boundary seq., kappa=1.50, b_n=0.301)",8000,20,"bch","BCH double selection + AIPW","ols",10,50,14.98,0,0,0,0,0,0.207525,NA,NA,0,0,0,0
+"B8000_k1.10","B (boundary seq., kappa=1.10, b_n=0.125)",8000,20,"oracle","oracle set + AIPW","ols",10,50,7,0,0,0,0,0,0.032925,NA,NA,0,0,0,0
+"B8000_k1.10","B (boundary seq., kappa=1.10, b_n=0.125)",8000,20,"full","full set + AIPW","ols",10,50,21,0,0,0,0,0,0.2105875,NA,NA,0,0,0,0
+"B8000_k1.10","B (boundary seq., kappa=1.10, b_n=0.125)",8000,20,"out_thr","outcome-only thresholded + AIPW","ols",10,50,6.54,0,0,0,0,0,0.0217375,NA,NA,0,0,0,0
+"B8000_k1.10","B (boundary seq., kappa=1.10, b_n=0.125)",8000,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",10,50,13.2,0,0,0,0,0,0.0774125,NA,NA,0,0,0,0
+"B8000_k1.10","B (boundary seq., kappa=1.10, b_n=0.125)",8000,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",10,50,5.76,0,0,0,0,0,0.0268125,NA,NA,0,0,0,0
+"B8000_k1.10","B (boundary seq., kappa=1.10, b_n=0.125)",8000,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",10,50,6.76,0,0,0,0,0,0.026875,NA,NA,0,0,0,0
+"B8000_k1.10","B (boundary seq., kappa=1.10, b_n=0.125)",8000,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",10,50,13.2,0,0,0,0,0,0.0774125,NA,NA,0,0,0,0
+"B8000_k1.10","B (boundary seq., kappa=1.10, b_n=0.125)",8000,20,"bch","BCH double selection + AIPW","ols",10,50,15.86,0,0,0,0,0,0.21015,NA,NA,0,0,0,0
+"B8000_k0.75","B (boundary seq., kappa=0.75, b_n=0.058)",8000,20,"oracle","oracle set + AIPW","ols",10,50,7,0,0,0,0,0,0.032725,NA,NA,0,0,0,0
+"B8000_k0.75","B (boundary seq., kappa=0.75, b_n=0.058)",8000,20,"full","full set + AIPW","ols",10,50,21,0,0,0,0,0,0.20745,NA,NA,0,0,0,0
+"B8000_k0.75","B (boundary seq., kappa=0.75, b_n=0.058)",8000,20,"out_thr","outcome-only thresholded + AIPW","ols",10,50,5.04,0,0,0,0,0,0.0002625,NA,NA,0,0,0,0
+"B8000_k0.75","B (boundary seq., kappa=0.75, b_n=0.058)",8000,20,"out_bic","outcome-only BIC-lasso + AIPW","ols",10,50,12.16,0,0,0,0,0,0.073775,NA,NA,0,0,0,0
+"B8000_k0.75","B (boundary seq., kappa=0.75, b_n=0.058)",8000,20,"oal_fix","OAL arm alone (fixed lambda) + AIPW","ols",10,50,4.44,0,0,0,0,0,5e-04,NA,NA,0,0,0,0
+"B8000_k0.75","B (boundary seq., kappa=0.75, b_n=0.058)",8000,20,"oads_thr","ODS-thr (theory object) + AIPW","ols",10,50,5.08,0,0,0,0,0,5e-04,NA,NA,0,0,0,0
+"B8000_k0.75","B (boundary seq., kappa=0.75, b_n=0.058)",8000,20,"oads_bic","ODS-bic (software variant) + AIPW","ols",10,50,12.16,0,0,0,0,0,0.073775,NA,NA,0,0,0,0
+"B8000_k0.75","B (boundary seq., kappa=0.75, b_n=0.058)",8000,20,"bch","BCH double selection + AIPW","ols",10,50,14.7,0,0,0,0,0,0.2071,NA,NA,0,0,0,0

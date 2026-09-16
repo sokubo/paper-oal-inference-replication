@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this archive, please cite the paper."
+title: "Replication archive: Inference after Thresholded Outcome-Based Confounder Selection under Confounder-Instrument Separation"
+authors:
+  - family-names: Okubo
+    given-names: Shoki
+    orcid: https://orcid.org/0009-0007-6925-5174
+year: 2026
