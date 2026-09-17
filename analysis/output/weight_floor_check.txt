@@ -1,0 +1,22 @@
+(1) eps_n = min(1e-8, 1/n) at the training sizes used:
+    n =   400: eps_n = 1e-08; identical(eps_n, 1e-8) = TRUE
+    n =  1600: eps_n = 1e-08; identical(eps_n, 1e-8) = TRUE
+    n =  6400: eps_n = 1e-08; identical(eps_n, 1e-8) = TRUE
+    n =  4588: eps_n = 1e-08; identical(eps_n, 1e-8) = TRUE
+    n =   500: eps_n = 1e-08; identical(eps_n, 1e-8) = TRUE
+    n =  2000: eps_n = 1e-08; identical(eps_n, 1e-8) = TRUE
+    n =  8000: eps_n = 1e-08; identical(eps_n, 1e-8) = TRUE
+    n =  5735: eps_n = 1e-08; identical(eps_n, 1e-8) = TRUE
+    zero coefficient: oal_scale(c(0, 1e-5, 0.3), 400) = 1e-08 1e-08 9e-02 (old: 1e-08 1e-08 9e-02)
+(2) rescaled design matrices and OAL selections identical under both floors (80 simulated training sets): TRUE; rescaling vectors identical: TRUE
+    RHC (numeric columns, LOS pilot, n = 5734): min |b_j| = 1.528e-02; rescaling identical under both floors: TRUE
+(3) Lemma A2(ii): max(b^2, eps_n) <= log(n)^2/n on the event |b| <= log(n)/sqrt(n), since eps_n <= 1/n <= log(n)^2/n for n >= 3:
+    n = 3e+00: eps_n = 1.0e-08 <= log(n)^2/n = 4.023e-01: TRUE; shrinking-floor penalty lower bound n^{5/4}/log(n)^2 = 3.271e+00; fixed-floor (1e-8) penalty at an exact zero, n^{1/4}*1e8 = 1.316e+08, versus the gradient scale n = 3e+00 -> exclusion argument holds
+    n = 4e+02: eps_n = 1.0e-08 <= log(n)^2/n = 8.974e-02: TRUE; shrinking-floor penalty lower bound n^{5/4}/log(n)^2 = 4.983e+01; fixed-floor (1e-8) penalty at an exact zero, n^{1/4}*1e8 = 4.472e+08, versus the gradient scale n = 4e+02 -> exclusion argument holds
+    n = 2e+03: eps_n = 1.0e-08 <= log(n)^2/n = 3.402e-02: TRUE; shrinking-floor penalty lower bound n^{5/4}/log(n)^2 = 1.859e+02; fixed-floor (1e-8) penalty at an exact zero, n^{1/4}*1e8 = 6.325e+08, versus the gradient scale n = 2e+03 -> exclusion argument holds
+    n = 6e+03: eps_n = 1.0e-08 <= log(n)^2/n = 1.200e-02: TRUE; shrinking-floor penalty lower bound n^{5/4}/log(n)^2 = 7.453e+02; fixed-floor (1e-8) penalty at an exact zero, n^{1/4}*1e8 = 8.944e+08, versus the gradient scale n = 6e+03 -> exclusion argument holds
+    n = 1e+06: eps_n = 1.0e-08 <= log(n)^2/n = 1.909e-04: TRUE; shrinking-floor penalty lower bound n^{5/4}/log(n)^2 = 1.657e+05; fixed-floor (1e-8) penalty at an exact zero, n^{1/4}*1e8 = 3.162e+09, versus the gradient scale n = 1e+06 -> exclusion argument holds
+    n = 1e+08: eps_n = 1.0e-08 <= log(n)^2/n = 3.393e-06: TRUE; shrinking-floor penalty lower bound n^{5/4}/log(n)^2 = 2.947e+07; fixed-floor (1e-8) penalty at an exact zero, n^{1/4}*1e8 = 1.000e+10, versus the gradient scale n = 1e+08 -> exclusion argument holds
+    n = 1e+10: eps_n = 1.0e-10 <= log(n)^2/n = 5.302e-08: TRUE; shrinking-floor penalty lower bound n^{5/4}/log(n)^2 = 5.964e+09; fixed-floor (1e-8) penalty at an exact zero, n^{1/4}*1e8 = 3.162e+10, versus the gradient scale n = 1e+10 -> exclusion argument holds
+    n = 1e+12: eps_n = 1.0e-12 <= log(n)^2/n = 7.635e-10: TRUE; shrinking-floor penalty lower bound n^{5/4}/log(n)^2 = 1.310e+12; fixed-floor (1e-8) penalty at an exact zero, n^{1/4}*1e8 = 1.000e+11, versus the gradient scale n = 1e+12 -> fixed floor too weak (n^{3/4} > 1e8)
+    the fixed floor 1e-8 stops dominating the gradient at n = 1e8^(4/3) = 4.64e+10

@@ -2,11 +2,17 @@
 #
 # Data: SUPPORT right-heart-catheterisation study (Connors et al. 1996),
 #   rhc_full.rda, n = 5,735 ICU admissions; treatment = RHC within the first
-#   24 hours of ICU admission (swang1); baseline covariates measured on day 1.
+#   24 hours after study entry (swang1); baseline covariates of the public
+#   file (day-1 physiology and status variables, the day-1 two-month survival
+#   prediction, and the Duke Activity Status Index das2d3pc, which refers to
+#   the two weeks before admission and was elicited at the day-3 interview
+#   from the patient or a calibrated surrogate report, imputed when neither
+#   was available -- Connors et al. 1996, pp. 890-891).
 # Outcomes: (a) 30-day survival, Y = 1{dth30 == "No"} (risk difference);
-#           (b) hospital length of stay in days, dschdte - sadmdte (n = 5,734
-#           with a recorded discharge date; descriptive estimand that ignores
-#           the competing event death).
+#           (b) hospital days from study entry to discharge, dschdte - sadmdte
+#           (sadmdte = study admission date, NOT the hospital admission date;
+#           n = 5,734 with a recorded discharge date; descriptive estimand
+#           that ignores the competing event death).
 # Candidate pool: the SAME dummy-coded baseline pool for both outcomes (see
 #   output/applications2_pool.txt for the variable list with SUPPORT labels).
 # Arms (all with the same downstream estimator: K = 5 cross-fitted AIPW,
@@ -47,13 +53,15 @@ sel_bic <- function(x, y, family, unpen = NULL) {
   cf <- as.vector(coef(fit, s = fit$lambda[which.min(bic)]))[-1]
   which(cf[(off + 1):length(cf)] != 0)
 }
+oal_floor <- function(n) min(1e-8, 1 / n)   # weight-denominator floor eps_n = min(1e-8, 1/n); equals 1e-8 for every n < 1e8 used here (review round 4, R4-m3)
+oal_scale <- function(b, n) pmax(b^2, oal_floor(n))   # x_j * max(b_j^2, eps_n)  <=>  adaptive weight {max(b_j^2, eps_n)}^{-1}
 sel_oal_fixed <- function(Z, A, b) {
-  n <- nrow(Z); Zs <- sweep(Z, 2, pmax(abs(b)^2, 1e-8), "*"); lam <- n^(-0.75)
+  n <- nrow(Z); Zs <- sweep(Z, 2, oal_scale(b, n), "*"); lam <- n^(-0.75)
   fit <- suppressWarnings(glmnet(Zs, A, family = "binomial", standardize = FALSE, lambda = c(2 * lam, lam)))
   which(as.vector(coef(fit, s = lam))[-1] != 0)
 }
 sel_oal_wamd <- function(Z, A, b) {
-  n <- nrow(Z); Zs <- sweep(Z, 2, pmax(abs(b)^2, 1e-8), "*")
+  n <- nrow(Z); Zs <- sweep(Z, 2, oal_scale(b, n), "*")
   lg <- sort(n^c(-10, -5, -1, -.75, -.5, -.25, .25, .49) / n, decreasing = TRUE)
   fit <- suppressWarnings(glmnet(Zs, A, family = "binomial", standardize = FALSE, lambda = lg))
   crit <- rep(Inf, length(lg)); es <- vector("list", length(lg)); sdz <- apply(Z, 2, sd) + 1e-12
@@ -172,7 +180,9 @@ pool$label[is.na(pool$label)] <- c(cat1 = "primary disease category", cat2 = "se
   race = "race", income = "income", urin1_miss = "urine output day 1 missing (indicator)",
   wtkilo1_zero = "weight recorded as 0 (missing weight indicator)")[pool$source[is.na(pool$label)]]
 writeLines(c(sprintf("Candidate pool for both RHC outcomes: %d dummy-coded baseline columns (standardised), n = %d.", ncol(Zs), nrow(Zs)),
-             "Excluded: identifiers and dates, death/dth30/t3d30 (outcomes), swang1 (treatment), adld3p (day-3 ADL, post-baseline).",
+             "Excluded: identifiers and dates, death/dth30/t3d30 (outcomes), swang1 (treatment), adld3p (day-3 patient-only ADL report, 75 percent missing).",
+             "LOS outcome = dschdte - sadmdte = hospital days from study entry (sadmdte = study admission date) to discharge.",
+             "das2d3pc (DASI) refers to the two weeks before admission; elicited at the day-3 interview (patient or calibrated surrogate; imputed if neither) -- Connors et al. 1996, pp. 890-891.",
              "urin1 median-imputed with a missingness indicator; wtkilo1 = 0 (missing weight) flagged; cat2 NA coded as 'None'.", "",
              sprintf("%-28s %-12s %s", "column", "source", "SUPPORT label"),
              sprintf("%-28s %-12s %s", pool$column, pool$source, pool$label)), "output/applications2_pool.txt")

@@ -75,11 +75,13 @@ sel_bic <- function(x, y, family, unpen = NULL) {
   cf <- as.vector(coef(fit, s = fit$lambda[which.min(bic)]))[-1]
   which(cf[(off + 1):length(cf)] != 0)
 }
+oal_floor <- function(n) min(1e-8, 1 / n)   # weight-denominator floor eps_n = min(1e-8, 1/n); equals 1e-8 for every n < 1e8 used here (review round 4, R4-m3)
+oal_scale <- function(b, n) pmax(b^2, oal_floor(n))   # x_j * max(b_j^2, eps_n)  <=>  adaptive weight {max(b_j^2, eps_n)}^{-1}
 sel_oal_fixed <- function(Z, A, b) {
-  # adaptive logistic lasso, weights |b_j|^{-2}, lambda_sum = n^{1/4}
-  # (glmnet mean-log-likelihood scale: n^{1/4}/n = n^{-3/4})
+  # adaptive logistic lasso, weights {max(b_j^2, eps_n)}^{-1} (= |b_j|^{-2} unless b_j^2 <= eps_n),
+  # lambda_sum = n^{1/4} (glmnet mean-log-likelihood scale: n^{1/4}/n = n^{-3/4}); n = training size
   n <- nrow(Z)
-  Zs <- sweep(Z, 2, pmax(abs(b)^2, 1e-8), "*"); lam <- n^(-0.75)
+  Zs <- sweep(Z, 2, oal_scale(b, n), "*"); lam <- n^(-0.75)
   fit <- suppressWarnings(glmnet(Zs, A, family = "binomial", standardize = FALSE,
                                  lambda = c(2 * lam, lam)))
   which(as.vector(coef(fit, s = lam))[-1] != 0)
@@ -87,7 +89,7 @@ sel_oal_fixed <- function(Z, A, b) {
 sel_oal_wamd <- function(Z, A, b, alpha = 1) {
   # Shortreed-Ertefaie wAMD tuning over their lambda grid (practitioner default)
   n <- nrow(Z); p <- ncol(Z)
-  Zs <- sweep(Z, 2, pmax(abs(b)^2, 1e-8), "*")
+  Zs <- sweep(Z, 2, oal_scale(b, n), "*")
   lg <- sort(n^c(-10, -5, -1, -.75, -.5, -.25, .25, .49) / n, decreasing = TRUE)
   fit <- suppressWarnings(glmnet(Zs, A, family = "binomial", standardize = FALSE,
                                  lambda = lg, alpha = alpha))

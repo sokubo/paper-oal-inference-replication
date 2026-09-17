@@ -32,7 +32,7 @@ bic_select <- function(x, y, family, unpen = NULL) {
 oal_select <- function(Z, A, Y, tune = "wamd") {
   n <- nrow(Z); p <- ncol(Z)
   b_out <- coef(lm(Y ~ A + Z))[-(1:2)]
-  scl <- pmax(abs(b_out)^2, 1e-8)          # gamma = 2; x*_j = x_j * |b_j|^2
+  scl <- pmax(b_out^2, min(1e-8, 1 / n))  # gamma = 2; x*_j = x_j * max(b_j^2, eps_n), eps_n = min(1e-8, 1/n) (= 1e-8 here; R4-m3)
   Zs <- sweep(Z, 2, scl, "*")
   lam_grid <- sort(n^c(-10,-5,-1,-.75,-.5,-.25,.25,.49), decreasing = TRUE)
   fit <- suppressWarnings(glmnet(Zs, A, family = "binomial",
@@ -90,7 +90,7 @@ oal_select_fixed <- function(Z, A, Y) {
   # glmnet uses the mean-log-likelihood scale: lambda = n^{1/4} / n = n^{-3/4}.
   n <- nrow(Z)
   b_out <- coef(lm(Y ~ A + Z))[-(1:2)]
-  scl <- pmax(abs(b_out)^2, 1e-8)
+  scl <- pmax(b_out^2, min(1e-8, 1 / n))  # eps_n = min(1e-8, 1/n), see above
   Zs <- sweep(Z, 2, scl, "*")
   lam <- n^(-0.75)
   fit <- suppressWarnings(glmnet(Zs, A, family = "binomial",

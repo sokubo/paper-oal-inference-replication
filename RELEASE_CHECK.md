@@ -1,11 +1,11 @@
 # Release check — paper-oal-inference-replication
 
-Date: 2026-09-16T07:50:03Z. Snapshot downloaded anonymously (no credentials, no gh CLI) from `https://codeload.github.com/sokubo/paper-oal-inference-replication/tar.gz/main`.
+Date: 2026-09-17T03:07:54Z. Snapshot downloaded anonymously (no credentials, no gh CLI) from `https://codeload.github.com/sokubo/paper-oal-inference-replication/tar.gz/main`.
 
-- ref: `main`; commit: `8ec49560ea7021146ec50e9b58072c4589a03e6c`
-- archive SHA-256: `bfe3a65d04dc48a268794e8c896e085f0c103916273ac60cb15e7793fd497684`
-- files in snapshot (excluding FILE_MANIFEST.txt and RELEASE_CHECK*): 75; listed in FILE_MANIFEST.txt: 75; missing from snapshot: 0; not listed in manifest: 0
-- clean run: documented sequence executed in a clean copy with shipped outputs set aside (5521s); log and sessionInfo kept; comparison below
+- ref: `main`; commit: `95e9f135111ac8edbe2ce5fd48abe3a48a5f82fc`
+- archive SHA-256: `a81b1297c002159d51a05610ffd87c6b3ab00bdab712560d3ed761e9ad9ff4df`
+- files in snapshot (excluding FILE_MANIFEST.txt and RELEASE_CHECK*): 77; listed in FILE_MANIFEST.txt: 77; missing from snapshot: 0; not listed in manifest: 0
+- clean run: documented sequence executed in a clean copy with shipped outputs set aside (5192s); log and sessionInfo kept; comparison below
 - staged figures: figure staging not run
 
 ## Environment of the clean run
@@ -46,6 +46,7 @@ time zone: Asia/Tokyo
   analysis/convergence_check_fits.csv                   identical 0.000000e+00
        analysis/convergence_check.csv                   identical 0.000000e+00
        analysis/convergence_check.txt                   identical 0.000000e+00
+        analysis/convergence_table.md                   identical 0.000000e+00
             analysis/ctmle_errors.txt                   identical 0.000000e+00
         analysis/proposed_summary.txt                   identical 0.000000e+00
           analysis/proposed_table.csv          numeric difference 4.400036e-12
@@ -60,5 +61,5 @@ time zone: Asia/Tokyo
         analysis/battery3_summary.txt shipped but not regenerated           NA
           analysis/battery3_table.csv shipped but not regenerated           NA
 
-files compared: 30; identical: 18; numeric difference: 6 (max 1.30e-10); other: 6
+files compared: 31; identical: 19; numeric difference: 6 (max 1.30e-10); other: 6
 ```

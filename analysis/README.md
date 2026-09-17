@@ -33,7 +33,8 @@ reports the archived macOS values.
 | 5 | `Rscript undercoverage_demo.R`; `Rscript proposed_estimator.R` | `output/undercoverage_*`, `proposed_*` | Section 2 (Figure 1, prototype numbers) |
 | 6 | `Rscript ry_target_check.R 100 <cores>` | `output/ry_target_check.csv/.txt/.log` | Web Appendix D (100 replications; the second argument is the number of cores and does not affect the results; the script's default is 300 replications) |
 | 7 | `Rscript convergence_check.R 25 10 <cores>`; `Rscript convergence_table.R` | `output/convergence_check.csv/.txt`, `convergence_check_fits.csv`; `output/convergence_table.md` (the Table 11 rows and the five prose figures, each tied to its source column) | Web Appendix C (Table 11) |
-| 8 | `python3 example_A1.py` | printed | Web Appendix B, Example A1 |
+| 8 | `Rscript weight_floor_check.R` | `output/weight_floor_check.txt` | Section 3.1 / Lemma A2 / Web Appendix C: the adaptive-weight floor $\epsilon_n = \min(10^{-8}, 1/n)$ equals `1e-8` at every training size used, and the rescaling and OAL selection are `identical()` under the shrinking and the fixed floor (round 4, R4-m3) |
+| 9 | `python3 example_A1.py` | printed | Web Appendix B, Example A1 |
 | — | `Rscript apply_401k.R` (optional; needs `hdm`) | `output/applications_401k.csv/.txt` | not used in the paper |
 
 Per-replication seeds are `1000 * seed_cell + r`, so the battery does not depend on the number of

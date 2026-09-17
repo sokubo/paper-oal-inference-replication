@@ -61,6 +61,7 @@ analysis/output/ry_target_check.log
 analysis/output/ry_target_check.txt
 analysis/output/undercoverage_summary.txt
 analysis/output/undercoverage_table.csv
+analysis/output/weight_floor_check.txt
 analysis/proposed_estimator.R
 analysis/README.md
 analysis/RUN_ON_MAC.md
@@ -70,6 +71,7 @@ analysis/sim_battery2.R
 analysis/sim_battery3.R
 analysis/sim_battery4.R
 analysis/undercoverage_demo.R
+analysis/weight_floor_check.R
 CITATION.cff
 data/rhc_full.rda
 figures/fig1_undercoverage.png

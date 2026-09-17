@@ -1,5 +1,7 @@
 Candidate pool for both RHC outcomes: 74 dummy-coded baseline columns (standardised), n = 5735.
-Excluded: identifiers and dates, death/dth30/t3d30 (outcomes), swang1 (treatment), adld3p (day-3 ADL, post-baseline).
+Excluded: identifiers and dates, death/dth30/t3d30 (outcomes), swang1 (treatment), adld3p (day-3 patient-only ADL report, 75 percent missing).
+LOS outcome = dschdte - sadmdte = hospital days from study entry (sadmdte = study admission date) to discharge.
+das2d3pc (DASI) refers to the two weeks before admission; elicited at the day-3 interview (patient or calibrated surrogate; imputed if neither) -- Connors et al. 1996, pp. 890-891.
 urin1 median-imputed with a missingness indicator; wtkilo1 = 0 (missing weight) flagged; cat2 NA coded as 'None'.
 
 column                       source       SUPPORT label

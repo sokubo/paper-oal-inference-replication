@@ -13,7 +13,7 @@ Preprint: arXiv:XXXX.XXXXX (to be filled at posting). Author: Shoki Okubo (Toyo 
 release-check records (`RELEASE_CHECK*`), which are written after the manifest.
 
 ## Checked commit and release record
-Computational commit checked against the manuscript: `8ec49560ea7021146ec50e9b58072c4589a03e6c` — see `RELEASE_CHECK.md` (with `RELEASE_CHECK_run.log` and `RELEASE_CHECK_sessionInfo.txt` when a clean-copy run was made). Later commits change documentation and the release record only — `git diff --stat 8ec49560ea7021146ec50e9b58072c4589a03e6c HEAD` lists them — so the scripts, data and outputs are those of the checked commit; after any change to code or outputs the release check is rerun and this line is regenerated.
+Computational commit checked against the manuscript: `95e9f135111ac8edbe2ce5fd48abe3a48a5f82fc` — see `RELEASE_CHECK.md` (with `RELEASE_CHECK_run.log` and `RELEASE_CHECK_sessionInfo.txt` when a clean-copy run was made). Later commits change documentation and the release record only — `git diff --stat 95e9f135111ac8edbe2ce5fd48abe3a48a5f82fc HEAD` lists them — so the scripts, data and outputs are those of the checked commit; after any change to code or outputs the release check is rerun and this line is regenerated.
 Tag matching the posted preprint version: to be added at posting (`arxiv-<id>v<n>`).
 
 ## How to run
@@ -48,6 +48,7 @@ Rscript undercoverage_demo.R && Rscript proposed_estimator.R      # Section 2
 Rscript ry_target_check.R 100 8                                    # Web Appendix D target check (100 replications; 2nd arg = cores)
 Rscript convergence_check.R 25 10 8                                # Web Appendix C numerical diagnostics, ~3 min
 Rscript convergence_table.R                                        # Table 11 rows and prose figures from the diagnostic output
+Rscript weight_floor_check.R                                       # the adaptive-weight floor eps_n (round 4, R4-m3): equals 1e-8 at every n used; selections identical
 python3 example_A1.py                                              # Example A1 (exact rational arithmetic)
 ```
 `sim_battery4.R` writes per-cell checkpoints to `output/battery4_cells/` (not shipped); delete them to
