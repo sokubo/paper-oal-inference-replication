@@ -177,11 +177,14 @@ aipw_from_sets <- function(Z, A, Y, folds, setlist) {
 
 # ------------------------------------------------------------------- C-TMLE
 ctmle_arm <- function(Z, A, Y) {
-  # Reference implementation (Ju, Gruber, van der Laan; CRAN package ctmle), C-TMLE1 as in the
-  # package vignette: the lambda sequence for the propensity lasso starts at the cv.glmnet
-  # minimiser and continues towards less penalisation; Q is the BIC-lasso outcome fit (the same
-  # initial estimator as the other arms). Y and Q are rescaled to [0, 1] for the logistic
-  # fluctuation and the estimate is rescaled back. Skipped where the package is unavailable
+  # Reference implementation (CRAN package ctmle), C-TMLE1 as in the package vignette: the
+  # lambda sequence for the propensity lasso starts at the cv.glmnet minimiser and continues
+  # towards less penalisation. Q is an initial estimator of our own choosing -- an unpenalized
+  # least-squares refit on the BIC-lasso-selected covariates, additive in A (so Q1 - Q0 is
+  # constant), fitted on the whole sample; it is NOT the arm-specific, separately fitted
+  # treated/control refit that refit_fold uses for the cross-fitted AIPW arms. Y and Q are
+  # rescaled to [0, 1] for the logistic fluctuation and the estimate is rescaled back.
+  # Skipped where the package is unavailable
   # (RUN_ON_MAC.md); the first error messages are written to output/ctmle_errors.txt.
   if (!HAVE_CTMLE) return(c(NA_real_, NA_real_))
   tryCatch({
