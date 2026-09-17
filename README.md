@@ -13,7 +13,7 @@ Preprint: arXiv:XXXX.XXXXX (to be filled at posting). Author: Shoki Okubo (Toyo 
 release-check records (`RELEASE_CHECK*`), which are written after the manifest.
 
 ## Checked commit and release record
-Computational commit checked against the manuscript: `95e9f135111ac8edbe2ce5fd48abe3a48a5f82fc` — see `RELEASE_CHECK.md` (with `RELEASE_CHECK_run.log` and `RELEASE_CHECK_sessionInfo.txt` when a clean-copy run was made). Later commits change documentation and the release record only — `git diff --stat 95e9f135111ac8edbe2ce5fd48abe3a48a5f82fc HEAD` lists them — so the scripts, data and outputs are those of the checked commit; after any change to code or outputs the release check is rerun and this line is regenerated.
+Computational commit checked against the manuscript: `67192061c99df00c6d41712d106c452ee364b6e7` — see `RELEASE_CHECK.md` (with `RELEASE_CHECK_run.log` and `RELEASE_CHECK_sessionInfo.txt` when a clean-copy run was made). Later commits change documentation and the release record only — `git diff --stat 67192061c99df00c6d41712d106c452ee364b6e7 HEAD` lists them — so the scripts, data and outputs are those of the checked commit; after any change to code or outputs the release check is rerun and this line is regenerated.
 Tag matching the posted preprint version: to be added at posting (`arxiv-<id>v<n>`).
 
 ## How to run

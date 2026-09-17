@@ -1,11 +1,11 @@
 # Release check — paper-oal-inference-replication
 
-Date: 2026-09-17T03:07:54Z. Snapshot downloaded anonymously (no credentials, no gh CLI) from `https://codeload.github.com/sokubo/paper-oal-inference-replication/tar.gz/main`.
+Date: 2026-09-17T09:14:08Z. Snapshot downloaded anonymously (no credentials, no gh CLI) from `https://codeload.github.com/sokubo/paper-oal-inference-replication/tar.gz/main`.
 
-- ref: `main`; commit: `95e9f135111ac8edbe2ce5fd48abe3a48a5f82fc`
-- archive SHA-256: `a81b1297c002159d51a05610ffd87c6b3ab00bdab712560d3ed761e9ad9ff4df`
-- files in snapshot (excluding FILE_MANIFEST.txt and RELEASE_CHECK*): 77; listed in FILE_MANIFEST.txt: 77; missing from snapshot: 0; not listed in manifest: 0
-- clean run: documented sequence executed in a clean copy with shipped outputs set aside (5192s); log and sessionInfo kept; comparison below
+- ref: `main`; commit: `67192061c99df00c6d41712d106c452ee364b6e7`
+- archive SHA-256: `fe090736c65b7cc848547543c4275803da0fd900b24b074f4ead17d9b0e679c6`
+- files in snapshot (excluding FILE_MANIFEST.txt and RELEASE_CHECK*): 79; listed in FILE_MANIFEST.txt: 79; missing from snapshot: 0; not listed in manifest: 0
+- clean run: documented sequence executed in a clean copy with shipped outputs set aside (5714s); log and sessionInfo kept; comparison below
 - staged figures: figure staging not run
 
 ## Environment of the clean run
@@ -46,7 +46,7 @@ time zone: Asia/Tokyo
   analysis/convergence_check_fits.csv                   identical 0.000000e+00
        analysis/convergence_check.csv                   identical 0.000000e+00
        analysis/convergence_check.txt                   identical 0.000000e+00
-        analysis/convergence_table.md                   identical 0.000000e+00
+        analysis/convergence_table.md          numeric difference 4.000000e+00
             analysis/ctmle_errors.txt                   identical 0.000000e+00
         analysis/proposed_summary.txt                   identical 0.000000e+00
           analysis/proposed_table.csv          numeric difference 4.400036e-12
@@ -54,6 +54,7 @@ time zone: Asia/Tokyo
          analysis/ry_target_check.txt                   identical 0.000000e+00
    analysis/undercoverage_summary.txt                   identical 0.000000e+00
      analysis/undercoverage_table.csv          numeric difference 9.992007e-16
+      analysis/weight_floor_check.txt                   identical 0.000000e+00
          analysis/battery_summary.txt shipped but not regenerated           NA
            analysis/battery_table.csv shipped but not regenerated           NA
         analysis/battery2_summary.txt shipped but not regenerated           NA
@@ -61,5 +62,5 @@ time zone: Asia/Tokyo
         analysis/battery3_summary.txt shipped but not regenerated           NA
           analysis/battery3_table.csv shipped but not regenerated           NA
 
-files compared: 31; identical: 19; numeric difference: 6 (max 1.30e-10); other: 6
+files compared: 32; identical: 19; numeric difference: 7 (max 4.00e+00); other: 6
 ```
