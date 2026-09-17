@@ -1,11 +1,11 @@
 # Release check — paper-oal-inference-replication
 
-Date: 2026-09-17T09:14:08Z. Snapshot downloaded anonymously (no credentials, no gh CLI) from `https://codeload.github.com/sokubo/paper-oal-inference-replication/tar.gz/main`.
+Date: 2026-09-17T12:57:02Z. Snapshot downloaded anonymously (no credentials, no gh CLI) from `https://codeload.github.com/sokubo/paper-oal-inference-replication/tar.gz/main`.
 
-- ref: `main`; commit: `67192061c99df00c6d41712d106c452ee364b6e7`
-- archive SHA-256: `fe090736c65b7cc848547543c4275803da0fd900b24b074f4ead17d9b0e679c6`
+- ref: `main`; commit: `7a1bb19e8b0c814c189f0054194aab037c593318`
+- archive SHA-256: `165729b5a630c5371923099c48d7c9ceb7ffa768eed5ac8685f410a56f45d70e`
 - files in snapshot (excluding FILE_MANIFEST.txt and RELEASE_CHECK*): 79; listed in FILE_MANIFEST.txt: 79; missing from snapshot: 0; not listed in manifest: 0
-- clean run: documented sequence executed in a clean copy with shipped outputs set aside (5714s); log and sessionInfo kept; comparison below
+- clean run: documented sequence executed in a clean copy with shipped outputs set aside (5734s); log and sessionInfo kept; comparison below
 - staged figures: figure staging not run
 
 ## Environment of the clean run
