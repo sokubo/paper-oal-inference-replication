@@ -35,7 +35,8 @@ counts with all cores and the C-TMLE reference arm, and rebuild the tables.
 ```sh
 cd ~/Documents/Claude/Projects/VariableSelection/paper/03-oal-inference/analysis
 tar xzf ../phaseB_outputs_paper3_2026-09-06.tar.gz                    # 0. container outputs -> output/
-Rscript -e 'for (p in c("glmnet","MASS","ctmle")) if (!requireNamespace(p, quietly=TRUE)) install.packages(p, repos="https://cloud.r-project.org")'
+Rscript -e 'for (p in c("glmnet","MASS","statmod","ggplot2","ctmle")) if (!requireNamespace(p, quietly=TRUE)) install.packages(p, repos="https://cloud.r-project.org")'
+python3 -c 'import pandas' || pip3 install pandas                  # make_paper_tables4.py needs pandas (round 3, R3-m2)
 Rscript sim_battery4.R 20 10 10 4 I                                    # 1a. 20-replication smoke test (about 1 min)
 Rscript sim_battery4.R 500 300 500 $(sysctl -n hw.ncpu) 2>&1 | tee output/battery4_run_mac.log   # 1b. full run (hours; see below)
 Rscript make_tables4.R                                                 # 2. writes output/battery4_tables.md (ODS-thr / ODS-bic labels)
@@ -146,6 +147,7 @@ boundary, rank-deficiency and generalized-inverse events, plus the effect of a
 
 ```sh
 Rscript convergence_check.R 25 10 $(sysctl -n hw.ncpu)     # -> output/convergence_check.csv/.txt, convergence_check_fits.csv
+Rscript convergence_table.R                                # -> output/convergence_table.md: Table 11 rows + prose figures (round 3, R3-M4)
 python3 example_A1.py                                     # Example A1 (Web Appendix B), exact rational arithmetic
 Rscript ry_target_check.R 100 $(sysctl -n hw.ncpu)        # the Web Appendix D target check at the paper's count (2nd arg = cores)
 ```

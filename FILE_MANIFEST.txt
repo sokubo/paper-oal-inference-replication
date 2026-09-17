@@ -2,6 +2,7 @@ analysis/apply_401k.R
 analysis/apply_realdata2.R
 analysis/bound_tables.R
 analysis/convergence_check.R
+analysis/convergence_table.R
 analysis/example_A1.py
 analysis/make_paper_tables4.py
 analysis/make_tables4.R
@@ -51,6 +52,7 @@ analysis/output/bound_tables.txt
 analysis/output/convergence_check_fits.csv
 analysis/output/convergence_check.csv
 analysis/output/convergence_check.txt
+analysis/output/convergence_table.md
 analysis/output/ctmle_errors.txt
 analysis/output/proposed_summary.txt
 analysis/output/proposed_table.csv

@@ -1,15 +1,27 @@
 # analysis/ — scripts, run order and number map (paper 3)
 
 Paper: *Inference after Thresholded Outcome-Based Confounder Selection under Confounder–Instrument
-Separation* (v0.9, 2026-09-16). All scripts are run from this directory and write to `output/`.
+Separation* (v1.0, 2026-09-17). All scripts are run from this directory and write to `output/`.
 
 ## Environment of the shipped outputs
 R 4.3.3 (Linux container, 2 cores) for the quadrature tables, the numerical diagnostics and Example
 A1; the author's Mac (macOS, 12 cores) for the full-size battery with the C-TMLE arm and the RHC
 application (`RUN_ON_MAC.md` records the runs; the run logs do not record the R version, which the
-release check's `sessionInfo()` will); packages glmnet, MASS, statmod, ctmle (C-TMLE arm only), parallel. `hdm` is needed only for the
-optional `apply_401k.R`. Python 3 (standard library) for `example_A1.py` and `make_paper_tables4.py`.
+release check's `sessionInfo()` will); packages glmnet, MASS, statmod, ctmle (C-TMLE arm only), parallel,
+ggplot2 (`undercoverage_demo.R` only). `hdm` is needed only for the optional `apply_401k.R`. Python 3
+with `pandas` for the table conversion `make_paper_tables4.py`; `example_A1.py` uses the standard
+library only (exact rational arithmetic). Check before running:
+```sh
+Rscript -e 'for (p in c("glmnet","MASS","statmod","ggplot2","ctmle")) cat(p, if (requireNamespace(p, quietly=TRUE)) "ok" else "MISSING", "\n")'
+python3 -c 'import pandas; print("pandas", pandas.__version__)'
+```
 An independent rerun of the whole battery (500/300/500 replications, 8 cores) took 101.5 minutes.
+The shipped `convergence_check*.csv` are from the author's Mac run of 2026-09-16 (R 4.6.0, macOS,
+12 cores), which the release check reproduced exactly; an earlier Linux run of the same script
+(kept in `output_container_2026-09-16/`, not shipped) agrees in every diagnostic count except that
+one P2 refit reached the iteration limit on macOS but not on Linux, and the changes under the
+200-iteration cap differ (the non-converged refits are divergent logistic fits), so Table 11
+reports the archived macOS values.
 
 ## Run order
 | Step | Command | Produces | Used in |
@@ -20,7 +32,7 @@ An independent rerun of the whole battery (500/300/500 replications, 8 cores) to
 | 4 | `Rscript bound_tables.R` | `output/bound_tables_bias.csv`, `bound_tables_rmis.csv`, `bound_tables.txt` | Web Appendix B (Tables 5–6) |
 | 5 | `Rscript undercoverage_demo.R`; `Rscript proposed_estimator.R` | `output/undercoverage_*`, `proposed_*` | Section 2 (Figure 1, prototype numbers) |
 | 6 | `Rscript ry_target_check.R 100 <cores>` | `output/ry_target_check.csv/.txt/.log` | Web Appendix D (100 replications; the second argument is the number of cores and does not affect the results; the script's default is 300 replications) |
-| 7 | `Rscript convergence_check.R 25 10 <cores>` | `output/convergence_check.csv/.txt`, `convergence_check_fits.csv` | Web Appendix C (Table 11) |
+| 7 | `Rscript convergence_check.R 25 10 <cores>`; `Rscript convergence_table.R` | `output/convergence_check.csv/.txt`, `convergence_check_fits.csv`; `output/convergence_table.md` (the Table 11 rows and the five prose figures, each tied to its source column) | Web Appendix C (Table 11) |
 | 8 | `python3 example_A1.py` | printed | Web Appendix B, Example A1 |
 | — | `Rscript apply_401k.R` (optional; needs `hdm`) | `output/applications_401k.csv/.txt` | not used in the paper |
 

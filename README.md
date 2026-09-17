@@ -29,11 +29,16 @@ Tag matching the posted preprint version: to be added at posting (`arxiv-<id>v<n
 3. The application uses the public RHC data included in `data/` (rhc_full.rda; `apply_realdata2.R` looks for it under `data/` relative to `analysis/` as well as in the author's project tree); the simulations generate their own data. No licensed microdata are included.
 
 ## Quick start (paper 3)
-CRAN packages: glmnet, MASS, statmod, ctmle (`hdm` only for the optional `apply_401k.R`); Python 3
-(standard library) for `example_A1.py` and `make_paper_tables4.py`. All scripts run from `analysis/`
-and write to `analysis/output/`. The sequence that produced the shipped outputs (per-replication
-seeds make the battery independent of the number of cores; the battery took 101.5 minutes on
-8 cores in an independent rerun):
+CRAN packages: glmnet, MASS, statmod, ggplot2 (`undercoverage_demo.R`), ctmle (`hdm` only for the
+optional `apply_401k.R`); Python 3 with `pandas` for the table conversion `make_paper_tables4.py`,
+and the standard library only for the exact-arithmetic check `example_A1.py`. All scripts run from
+`analysis/` and write to `analysis/output/`. Check the dependencies before running (round 3, R3-m2):
+```sh
+Rscript -e 'for (p in c("glmnet","MASS","statmod","ggplot2","ctmle")) cat(p, if (requireNamespace(p, quietly=TRUE)) "ok" else "MISSING", "\n")'
+python3 -c 'import pandas; print("pandas", pandas.__version__)'
+```
+The sequence that produced the shipped outputs (per-replication seeds make the battery independent
+of the number of cores; the battery took 101.5 minutes on 8 cores in an independent rerun):
 ```sh
 cd analysis
 Rscript sim_battery4.R 500 300 500 8 && Rscript make_tables4.R      # Table 2, Web Appendix C tables
@@ -42,6 +47,7 @@ Rscript bound_tables.R                                             # Web Appendi
 Rscript undercoverage_demo.R && Rscript proposed_estimator.R      # Section 2
 Rscript ry_target_check.R 100 8                                    # Web Appendix D target check (100 replications; 2nd arg = cores)
 Rscript convergence_check.R 25 10 8                                # Web Appendix C numerical diagnostics, ~3 min
+Rscript convergence_table.R                                        # Table 11 rows and prose figures from the diagnostic output
 python3 example_A1.py                                              # Example A1 (exact rational arithmetic)
 ```
 `sim_battery4.R` writes per-cell checkpoints to `output/battery4_cells/` (not shipped); delete them to
